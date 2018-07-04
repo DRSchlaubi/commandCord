@@ -1,7 +1,6 @@
 package me.schlaubi.commandcord.command.permission;
 
 import me.schlaubi.commandcord.CommandCord;
-import me.schlaubi.commandcord.command.handlers.GeneralCommandHandler;
 
 /**
  * @author Schlaubi / Michael Rittmeister
