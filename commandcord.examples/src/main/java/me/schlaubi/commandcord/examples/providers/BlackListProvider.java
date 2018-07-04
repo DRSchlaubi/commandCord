@@ -1,4 +1,4 @@
-package me.schlaubi.commandcord.examples.jda;
+package me.schlaubi.commandcord.examples.providers;
 
 /**
  * @author Schlaubi / Michael Rittmeister

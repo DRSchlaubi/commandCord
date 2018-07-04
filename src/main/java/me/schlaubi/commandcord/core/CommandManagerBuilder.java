@@ -91,13 +91,15 @@ public class CommandManagerBuilder {
 
     }
 
-    private CommandParser getParser(){
-        if(wrapper.equals(APIWrapper.JDA))
+    private CommandParser getParser() {
+        if (wrapper.equals(APIWrapper.JDA))
             return new JDAParser();
-        else if(wrapper.equals(APIWrapper.DISCORD4J))
+        else if (wrapper.equals(APIWrapper.DISCORD4J))
             return new Discord4JParser();
-        else
+        else if (wrapper.equals(APIWrapper.JAVACORD))
             return new JavaCordParser();
+        else
+            return null;
     }
 
 

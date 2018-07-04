@@ -1,8 +1,7 @@
-package me.schlaubi.commandcord.examples.jda;
+package me.schlaubi.commandcord.examples.javacord;
 
 import me.schlaubi.commandcord.command.CommandType;
 import me.schlaubi.commandcord.command.handlers.JDACommandHandler;
-import me.schlaubi.commandcord.command.handlers.JavaCordHandler;
 import me.schlaubi.commandcord.command.permission.Permissions;
 import net.dv8tion.jda.core.MessageBuilder;
 import net.dv8tion.jda.core.entities.Message;
@@ -11,16 +10,16 @@ import net.dv8tion.jda.core.entities.Message;
  * @author Schlaubi / Michael Rittmeister
  */
 
-public class PingCommand extends JDACommandHandler {
+public class FailCommand extends JDACommandHandler {
 
-    /* Example command */
+    /* Command to show how exception handling works*/
 
-    public PingCommand() {
-        super(new String[] {"ping"}, CommandType.FUN, Permissions.everyone(), "Funny test command", "ping");
+    public FailCommand() {
+        super(new String[] {"fail"}, CommandType.FUN, Permissions.authorOnly(), "Useless command for exception handling", "fail");
     }
 
     @Override
     public Message run(CommandInvocation commandInvocation) {
-        return new MessageBuilder().setContent( "Ping: 1337").build();
+        return new MessageBuilder().setContent(String.valueOf(Integer.parseInt("FAIL"))).build();
     }
 }

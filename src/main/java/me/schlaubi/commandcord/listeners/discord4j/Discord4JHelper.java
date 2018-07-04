@@ -1,6 +1,7 @@
 package me.schlaubi.commandcord.listeners.discord4j;
 
 
+import me.schlaubi.commandcord.CommandCord;
 import sx.blah.discord.handle.impl.obj.Message;
 
 /**
@@ -10,6 +11,6 @@ import sx.blah.discord.handle.impl.obj.Message;
 public class Discord4JHelper {
 
     void parseMessage(Message message){
-
+        CommandCord.getInstance().parse(message.getContent(), message.getGuild().getStringID(), message.getChannel().getStringID(), message.getStringID());
     }
 }

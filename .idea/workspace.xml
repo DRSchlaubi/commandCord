@@ -28,18 +28,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfb59e95-6c76-44f2-8c97-cf88a813b2e3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/BlackListProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/BeforeTasks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/BlackListProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/DefaultBeforeTasks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/EventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/FailCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/PingCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/EventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/FailCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/FailCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/PermissionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/PermissionProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/PingCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/PingCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commandcord.examples/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/commandcord.examples/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/BlackListProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/providers/BlackListProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/EventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/FailCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/FailCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/PermissionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/providers/PermissionProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/PingCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/PingCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandManagerBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandManagerBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/parser/JavaCordParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/parser/JavaCordParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/listeners/discord4j/Discord4JHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/listeners/discord4j/Discord4JHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/listeners/javacord/JavaCordListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/listeners/javacord/JavaCordListener.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -53,11 +58,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/Main.java">
+      <file leaf-file-name="JavaCordParser.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/parser/JavaCordParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+            <state relative-caret-position="374">
+              <caret line="37" column="9" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="37" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,85 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommandManagerBuilder.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandManagerBuilder.java">
+      <file leaf-file-name="JavaCordHelpCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/util/helpcommands/JavaCordHelpCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommandManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="99" column="15" selection-start-line="99" selection-start-column="15" selection-end-line="99" selection-end-column="15" />
-              <folding>
-                <element signature="e#3942#3943#0" expanded="true" />
-                <element signature="e#3968#3969#0" expanded="true" />
-                <element signature="e#4041#4042#0" expanded="true" />
-                <element signature="e#4083#4084#0" expanded="true" />
-                <element signature="e#4127#4128#0" expanded="true" />
-                <element signature="e#4162#4163#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlackListProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/BlackListProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="55" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
-              <folding>
-                <element signature="e#264#265#0" expanded="true" />
-                <element signature="e#317#318#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PermissionProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/PermissionProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlackListProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/BlackListProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefaultBeforeTasks.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/DefaultBeforeTasks.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#394#395#0" expanded="true" />
-                <element signature="e#416#417#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BeforeTasks.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/BeforeTasks.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+            <state relative-caret-position="216">
+              <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -151,8 +82,8 @@
       <file leaf-file-name="CommandParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="182">
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -160,11 +91,91 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JDAListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/listeners/jda/JDAListener.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+            <state relative-caret-position="275">
+              <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2260#2261#0" expanded="true" />
+                <element signature="e#2311#2312#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JavaCordListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/listeners/javacord/JavaCordListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PingCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/PingCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="67" lean-forward="true" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="67" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#669#670#0" expanded="true" />
+                <element signature="e#704#705#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Permissions.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/commandcord.examples/libs/commandcord.jar!/me/schlaubi/commandcord/command/permission/Permissions.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="369">
+              <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+              <folding>
+                <element signature="e#1466#1467#0" expanded="true" />
+                <element signature="e#1537#1538#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EventListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/EventListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="332">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Discord4JHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/listeners/discord4j/Discord4JHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="153" selection-start-line="13" selection-start-column="153" selection-end-line="13" selection-end-column="153" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommandManagerBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandManagerBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="95" column="9" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -184,6 +195,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>parse</find>
+      <find>event</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -199,14 +211,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/GeneralInvocation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/Discord4JCommandHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/JDACommandHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/JavaCordHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/listeners/javacord/JavaCordEditsListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/managers.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/PrefixProvider.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/APIWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/event/EventManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/event/events/Event.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/permission/Permissions.java" />
@@ -218,13 +222,11 @@
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/handlers/JavaCordHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/managers/Discord4JManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/managers/JavaCordManager.java" />
-        <option value="$PROJECT_DIR$/commandcord.examples/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/parser/JavaCordManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/parser/Discord4JParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/CommandCord.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/handlers/GeneralInvocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/handlers/GeneralCommandHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/parser/JavaCordParser.java" />
         <option value="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/FailCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/event/events/CommandExecutedEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/event/events/GeneralCommandEvent.java" />
@@ -242,14 +244,24 @@
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/util/helpcommands/JavaCordHelpCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/util/helpcommands/Discord4JHelpCommand.java" />
         <option value="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/PingCommand.java" />
-        <option value="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/PingCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/DefaultBeforeTasks.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/BeforeTasks.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/BlackListProvider.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandManager.java" />
+        <option value="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/PermissionProvider.java" />
+        <option value="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/EventListener.java" />
+        <option value="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/FailCommand.java" />
+        <option value="$PROJECT_DIR$/commandcord.examples/pom.xml" />
+        <option value="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/PingCommand.java" />
         <option value="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/BlackListProvider.java" />
+        <option value="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/PingCommand.java" />
         <option value="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/listeners/discord4j/Discord4JHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/listeners/javacord/JavaCordListener.java" />
+        <option value="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandManagerBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/parser/JavaCordParser.java" />
+        <option value="$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/EventListener.java" />
       </list>
     </option>
   </component>
@@ -325,7 +337,27 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="javacord" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="commandCord" type="b2602c69:ProjectViewProjectNode" />
+              <item name="commandCord" type="462c0819:PsiDirectoryNode" />
+              <item name="commandcord.examples" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
               <item name="jda" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="commandCord" type="b2602c69:ProjectViewProjectNode" />
+              <item name="commandCord" type="462c0819:PsiDirectoryNode" />
+              <item name="commandcord.examples" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="providers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="commandCord" type="b2602c69:ProjectViewProjectNode" />
@@ -520,6 +552,9 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\WORK\commandCord\commandcord.examples\src\main\java\me\schlaubi\commandcord\examples\jda" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\WORK\commandCord\commandcord.examples\libs" />
     </key>
@@ -536,14 +571,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="me.schlaubi.commandcord.examples.javacord.Main" />
+      <module name="commandcordexamples" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="me.schlaubi.commandcord.examples.javacord.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="me.schlaubi.commandcord.examples.jda.Main" />
       <module name="commandcordexamples" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="me.schlaubi.commandcord.examples.jda.*" />
+          <option name="PATTERN" value="me.schlaubi.commandcord.examples.providers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -589,6 +635,15 @@
       <properties />
       <listeners />
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Main (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main (1)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -602,15 +657,16 @@
       <updated>1530630226938</updated>
       <workItem from="1530630235817" duration="16070000" />
       <workItem from="1530706345081" duration="109000" />
-      <workItem from="1530706484781" duration="9740000" />
+      <workItem from="1530706484781" duration="12314000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25919000" />
+    <option name="totallyTimeSpent" value="28493000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -688,110 +744,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/event/events/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/listeners/javacord/JavaCordListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/discord4j/Discord4J/2.10.1/Discord4J-2.10.1.jar!/sx/blah/discord/handle/impl/obj/Guild.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="82" column="13" selection-start-line="82" selection-start-column="13" selection-end-line="82" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/handlers/JDACommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="42" column="62" selection-start-line="37" selection-start-column="8" selection-end-line="42" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/handlers/Discord4JCommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/handlers/JavaCordHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="716">
-          <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commandcord.examples/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/parser/Discord4JParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/commandcord.examples/libs/commandcord.jar!/me/schlaubi/commandcord/core/CommandParser.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/Program Files/jdk_8_U_151/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/CommandCord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-          <folding>
-            <element signature="e#269#270#0" expanded="true" />
-            <element signature="e#303#304#0" expanded="true" />
-            <element signature="e#352#353#0" expanded="true" />
-            <element signature="e#383#384#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/commandcord.examples/libs/commandcord.jar!/me/schlaubi/commandcord/core/parser/JDAParser.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/commandcord.examples/libs/commandcord.jar!/me/schlaubi/commandcord/listeners/jda/JDAListener.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/commandcord.examples/libs/commandcord.jar!/me/schlaubi/commandcord/command/handlers/GeneralCommandHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/handlers/GeneralInvocation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -818,27 +770,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/parser/JavaCordParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/commandcord.examples/libs/commandcord.jar!/me/schlaubi/commandcord/event/events/CommandExecutedEvent.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/permission/Permissions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -947,13 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/util/helpcommands/JavaCordHelpCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/util/helpcommands/Discord4JHelpCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -975,33 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/EventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/FailCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/PingCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/util/helpcommands/JDAHelpCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="538">
@@ -1016,13 +917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/BeforeTasks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -1045,31 +939,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="99" column="15" selection-start-line="99" selection-start-column="15" selection-end-line="99" selection-end-column="15" />
-          <folding>
-            <element signature="e#3942#3943#0" expanded="true" />
-            <element signature="e#3968#3969#0" expanded="true" />
-            <element signature="e#4041#4042#0" expanded="true" />
-            <element signature="e#4083#4084#0" expanded="true" />
-            <element signature="e#4127#4128#0" expanded="true" />
-            <element signature="e#4162#4163#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/commandcord.examples/libs/commandcord.jar!/me/schlaubi/commandcord/command/BlackListProvider.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1077,31 +946,127 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/BlackListProvider.java">
+    <entry file="jar://$PROJECT_DIR$/commandcord.examples/libs/commandcord.jar!/me/schlaubi/commandcord/core/CommandManager.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="55" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
-          <folding>
-            <element signature="e#264#265#0" expanded="true" />
-            <element signature="e#317#318#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="233">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/PermissionProvider.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/BeforeTasks.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="85">
+          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commandcord.examples/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/FailCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/PermissionProvider.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/EventListener.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/PingCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" column="69" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/FailCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/BlackListProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/providers/BlackListProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/providers/PermissionProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/commandcord.examples/libs/commandcord.jar!/me/schlaubi/commandcord/listeners/javacord/JavaCordListener.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/CommandCord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding>
+            <element signature="e#352#353#0" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="92" column="16" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+        <state relative-caret-position="410">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Program Files/jdk_8_U_151/src.zip!/java/lang/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="109" column="36" selection-start-line="109" selection-start-column="36" selection-end-line="109" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/listeners/discord4j/Discord4JHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="153" selection-start-line="13" selection-start-column="153" selection-end-line="13" selection-end-column="153" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1110,8 +1075,100 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandManagerBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+        <state relative-caret-position="275">
+          <caret line="95" column="9" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/command/permission/Permissions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/util/helpcommands/JavaCordHelpCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
+            <element signature="e#2311#2312#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/CommandParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/PingCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="67" lean-forward="true" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+            <element signature="e#704#705#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/commandcord.examples/libs/commandcord.jar!/me/schlaubi/commandcord/command/permission/Permissions.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+          <folding>
+            <element signature="e#1466#1467#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/EventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/listeners/javacord/JavaCordListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/schlaubi/commandcord/core/parser/JavaCordParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="37" column="9" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="37" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

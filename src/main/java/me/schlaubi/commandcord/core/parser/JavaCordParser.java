@@ -13,6 +13,7 @@ import me.schlaubi.commandcord.command.permission.PermissionProvider;
 import me.schlaubi.commandcord.core.CommandParser;
 import me.schlaubi.commandcord.event.events.CommandExecutedEvent;
 import me.schlaubi.commandcord.event.events.CommandFailedEvent;
+import me.schlaubi.commandcord.event.events.NoPermissionEvent;
 
 import java.util.concurrent.ExecutionException;
 
@@ -29,7 +30,10 @@ public class JavaCordParser extends CommandParser {
         if(handler == null) return;
         JavaCordHandler.CommandInvocation invocation = parseInvocation(message, guildId, textChannelId, messageId, handler);
 
-        if(handler.getPermissions().isCovered(Member.fromJavaCord(invocation.getUser(), invocation.getServer()))) return;
+        if(!handler.getPermissions().isCovered(Member.fromJavaCord(invocation.getUser(), invocation.getServer()))){
+            CommandCord.getInstance().getEventManager().call(new NoPermissionEvent(invocation, handler));
+            return;
+        }
 
         try {
             String answer = handler.run(invocation);

@@ -4,6 +4,8 @@ import me.schlaubi.commandcord.command.CommandType;
 import me.schlaubi.commandcord.core.APIWrapper;
 import me.schlaubi.commandcord.core.CommandManager;
 import me.schlaubi.commandcord.core.CommandManagerBuilder;
+import me.schlaubi.commandcord.examples.providers.BlackListProvider;
+import me.schlaubi.commandcord.examples.providers.PermissionProvider;
 import me.schlaubi.commandcord.listeners.jda.JDAListener;
 import me.schlaubi.commandcord.util.helpcommands.JDAHelpCommand;
 import net.dv8tion.jda.core.AccountType;
@@ -41,7 +43,6 @@ public class Main {
         CommandManager manager = new CommandManagerBuilder(APIWrapper.JDA)
                 .enableGuildPrefixes(false)
                 .setDefaultPrefix("!")
-                .setApi(new Object())
                 .setPermissionProvider(new PermissionProvider())
                 .enableBlacklist(true)
                 .setBlacklistProvider(new BlackListProvider())

@@ -1,7 +1,6 @@
-package me.schlaubi.commandcord.examples.jda;
+package me.schlaubi.commandcord.examples.javacord;
 
 import me.schlaubi.commandcord.command.CommandType;
-import me.schlaubi.commandcord.command.handlers.JDACommandHandler;
 import me.schlaubi.commandcord.command.handlers.JavaCordHandler;
 import me.schlaubi.commandcord.command.permission.Permissions;
 import net.dv8tion.jda.core.MessageBuilder;
@@ -11,7 +10,7 @@ import net.dv8tion.jda.core.entities.Message;
  * @author Schlaubi / Michael Rittmeister
  */
 
-public class PingCommand extends JDACommandHandler {
+public class PingCommand extends JavaCordHandler {
 
     /* Example command */
 
@@ -20,7 +19,7 @@ public class PingCommand extends JDACommandHandler {
     }
 
     @Override
-    public Message run(CommandInvocation commandInvocation) {
-        return new MessageBuilder().setContent( "Ping: 1337").build();
+    public String run(CommandInvocation commandInvocation) {
+        return "Ping: 1337";
     }
 }

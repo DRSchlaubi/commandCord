@@ -1,6 +1,7 @@
-package me.schlaubi.commandcord.examples.jda;
+package me.schlaubi.commandcord.examples.providers;
 
 import me.schlaubi.commandcord.command.permission.Member;
+import me.schlaubi.commandcord.examples.jda.Main;
 
 import java.util.Arrays;
 
@@ -9,6 +10,8 @@ import java.util.Arrays;
  */
 
 public class PermissionProvider implements me.schlaubi.commandcord.command.permission.PermissionProvider {
+
+    /* This class file provides the permission of users */
 
     @Override
     public boolean isGuildOwner(Member member) {

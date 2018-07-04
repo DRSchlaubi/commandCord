@@ -3,11 +3,13 @@ package me.schlaubi.commandcord.core.parser;
 import me.schlaubi.commandcord.CommandCord;
 import me.schlaubi.commandcord.command.PrefixProvider;
 import me.schlaubi.commandcord.command.handlers.Discord4JCommandHandler;
+import me.schlaubi.commandcord.command.permission.Member;
 import me.schlaubi.commandcord.command.permission.PermissionProvider;
 import me.schlaubi.commandcord.core.CommandManager;
 import me.schlaubi.commandcord.core.CommandParser;
 import me.schlaubi.commandcord.event.events.CommandExecutedEvent;
 import me.schlaubi.commandcord.event.events.CommandFailedEvent;
+import me.schlaubi.commandcord.event.events.NoPermissionEvent;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.handle.impl.obj.Guild;
 import sx.blah.discord.handle.impl.obj.Message;
@@ -24,6 +26,11 @@ public class Discord4JParser extends CommandParser {
         Discord4JCommandHandler handler = (Discord4JCommandHandler) getHandlerByAlias(getAlias(message, guildId));
         if (handler == null) return;
         Discord4JCommandHandler.CommandInvocation invocation = parseInvocation(message, guildId, textChannelId, messageId);
+
+        if(!handler.getPermissions().isCovered(Member.fromDiscord4J(invocation.getUser(), invocation.getGuild()))){
+            CommandCord.getInstance().getEventManager().call(new NoPermissionEvent(invocation, handler));
+            return;
+        }
 
         try{
             String answer = handler.run(invocation);

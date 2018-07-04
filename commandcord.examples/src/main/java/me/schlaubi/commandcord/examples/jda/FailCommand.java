@@ -12,6 +12,8 @@ import net.dv8tion.jda.core.entities.Message;
 
 public class FailCommand extends JDACommandHandler {
 
+    /* Command to show how exception handling works*/
+
     public FailCommand() {
         super(new String[] {"fail"}, CommandType.FUN, Permissions.authorOnly(), "Useless command for exception handling", "fail");
     }
