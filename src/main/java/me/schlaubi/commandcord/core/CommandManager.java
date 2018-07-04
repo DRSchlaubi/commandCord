@@ -1,5 +1,7 @@
 package me.schlaubi.commandcord.core;
 
+import me.schlaubi.commandcord.command.BeforeTasks;
+import me.schlaubi.commandcord.command.BlackListProvider;
 import me.schlaubi.commandcord.command.PrefixProvider;
 import me.schlaubi.commandcord.command.handlers.GeneralCommandHandler;
 import me.schlaubi.commandcord.command.permission.PermissionProvider;
@@ -15,21 +17,27 @@ import java.util.Map;
 public class CommandManager {
 
     protected boolean useGuildPrefixes;
+    protected boolean useBlacklist;
     private PermissionProvider permissionProvider;
     protected PrefixProvider prefixProvider;
     protected String defaultPrefix;
     private Object api;
     public EventManager eventManager = new EventManager();
     private CommandParser parser;
+    private BeforeTasks beforeTasksHandler;
+    private BlackListProvider blackListProvider;
     protected final Map<String, GeneralCommandHandler> commandAssociations = new HashMap<>();
 
-    public CommandManager(boolean useGuildPrefixes, PermissionProvider permissionProvider, PrefixProvider prefixProvider, String defaultPrefix, CommandParser parser, Object api){
+    public CommandManager(boolean useGuildPrefixes, PermissionProvider permissionProvider, PrefixProvider prefixProvider, String defaultPrefix, CommandParser parser, Object api, BeforeTasks beforeTasksHandler, boolean useBlackList, BlackListProvider blackListProvider){
         this.useGuildPrefixes = useGuildPrefixes;
         this.permissionProvider = permissionProvider;
         this.prefixProvider = prefixProvider;
         this.defaultPrefix = defaultPrefix;
         this.parser = parser;
         this.api = api;
+        this.useBlacklist = useBlackList;
+        this.blackListProvider = blackListProvider;
+        this.beforeTasksHandler = beforeTasksHandler;
     }
 
     public PermissionProvider getPermissionProvider(){
@@ -83,6 +91,13 @@ public class CommandManager {
     }
 
     public void parse(String message, String guildId, String textChannelId, String messageId){
+        /* Run user specified before tasks*/
+        if(!beforeTasksHandler.run(message, guildId, textChannelId, messageId)) return;
+        /*Check if the channel is blacklisted*/
+        if(useBlacklist)
+            if(blackListProvider.isBlackListed(textChannelId))
+                return;
+        /*Parse command*/
         parser.parse(message, guildId, textChannelId, messageId);
     }
 

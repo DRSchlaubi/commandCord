@@ -1,4 +1,4 @@
-package me.schlaubi.commandcord.examples;
+package me.schlaubi.commandcord.examples.jda;
 
 import me.schlaubi.commandcord.command.CommandType;
 import me.schlaubi.commandcord.command.handlers.JDACommandHandler;
@@ -10,15 +10,14 @@ import net.dv8tion.jda.core.entities.Message;
  * @author Schlaubi / Michael Rittmeister
  */
 
-public class PingCommand extends JDACommandHandler {
+public class FailCommand extends JDACommandHandler {
 
-    public PingCommand() {
-        super(new String[] {"ping"}, CommandType.FUN, Permissions.everyone(), "Funny test command", "ping");
+    public FailCommand() {
+        super(new String[] {"fail"}, CommandType.FUN, Permissions.authorOnly(), "Useless command for exception handling", "fail");
     }
 
     @Override
     public Message run(CommandInvocation commandInvocation) {
-        Integer.parseInt("dasasd");
-        return new MessageBuilder().setContent("Ping: " + commandInvocation.getChannel().getJDA().getPing()).build();
+        return new MessageBuilder().setContent(String.valueOf(Integer.parseInt("FAIL"))).build();
     }
 }

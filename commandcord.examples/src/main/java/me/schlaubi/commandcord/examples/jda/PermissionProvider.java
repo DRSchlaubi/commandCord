@@ -1,4 +1,4 @@
-package me.schlaubi.commandcord.examples;
+package me.schlaubi.commandcord.examples.jda;
 
 import me.schlaubi.commandcord.command.permission.Member;
 
