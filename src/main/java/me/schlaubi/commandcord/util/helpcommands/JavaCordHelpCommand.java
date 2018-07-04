@@ -9,6 +9,7 @@ import me.schlaubi.commandcord.command.permission.Permissions;
 import me.schlaubi.commandcord.core.CommandManager;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * @author Schlaubi / Michael Rittmeister
@@ -28,9 +29,10 @@ public class JavaCordHelpCommand extends JavaCordHandler {
         if(args.length == 0) {
             EmbedBuilder builder = new EmbedBuilder()
                     .setColor(Color.cyan);
-            for (Object o : CommandType.class.getDeclaringClass().getEnumConstants()) {
-                CommandType category = ((CommandType) o);
-                builder.addField(category.getDisplayName(), HelpCommandHelper.getNamesByType(category).toString(), false);
+            for (CommandType commandType : CommandType.class.getEnumConstants()) {
+                ArrayList<String> commandNames = HelpCommandHelper.getNamesByType(commandType);
+                if(commandNames.isEmpty()) continue;
+                builder.addField(commandType.getDisplayName(), HelpCommandHelper.listToString(commandNames), false);
             }
             invocation.getChannel().sendMessage("", builder);
         } else {

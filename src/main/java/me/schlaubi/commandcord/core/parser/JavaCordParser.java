@@ -1,4 +1,4 @@
-package me.schlaubi.commandcord.core.managers;
+package me.schlaubi.commandcord.core.parser;
 
 import de.btobastian.javacord.DiscordAPI;
 import de.btobastian.javacord.entities.Channel;
@@ -10,7 +10,7 @@ import me.schlaubi.commandcord.command.handlers.GeneralCommandHandler;
 import me.schlaubi.commandcord.command.handlers.JavaCordHandler;
 import me.schlaubi.commandcord.command.permission.Member;
 import me.schlaubi.commandcord.command.permission.PermissionProvider;
-import me.schlaubi.commandcord.core.CommandManager;
+import me.schlaubi.commandcord.core.CommandParser;
 import me.schlaubi.commandcord.event.events.CommandExecutedEvent;
 import me.schlaubi.commandcord.event.events.CommandFailedEvent;
 
@@ -20,12 +20,7 @@ import java.util.concurrent.ExecutionException;
  * @author Schlaubi / Michael Rittmeister
  */
 
-public class JavaCordManager extends CommandManager {
-
-
-    public JavaCordManager(boolean useGuildPrefixes, PermissionProvider permissionProvider, PrefixProvider prefixProvider, String defaultPrefix) {
-        super(useGuildPrefixes, permissionProvider, prefixProvider, defaultPrefix);
-    }
+public class JavaCordParser extends CommandParser {
 
     @Override
     public void parse(String message, String guildId, String textChannelId, String messageId) {
@@ -34,7 +29,7 @@ public class JavaCordManager extends CommandManager {
         if(handler == null) return;
         JavaCordHandler.CommandInvocation invocation = parseInvocation(message, guildId, textChannelId, messageId, handler);
 
-        if(handler.permissions.isCovered(Member.fromJavaCord(invocation.getUser(), invocation.getServer()))) return;
+        if(handler.getPermissions().isCovered(Member.fromJavaCord(invocation.getUser(), invocation.getServer()))) return;
 
         try {
             String answer = handler.run(invocation);
