@@ -16,7 +16,7 @@ public class HelpCommandHelper {
     private static ArrayList<GeneralCommandHandler> getHandlersByType(CommandType type){
         ArrayList<GeneralCommandHandler> out = new ArrayList<>();
         CommandCord.getInstance().getCommandAssociations().values().forEach(h -> {
-            if(h.type.equals(type))
+            if(h.getType().equals(type))
                 out.add(h);
         });
         return out;
@@ -25,7 +25,7 @@ public class HelpCommandHelper {
     static ArrayList<String> getNamesByType(CommandType type){
         ArrayList<String> out = new ArrayList<>();
         getHandlersByType(type).forEach(h -> {
-            out.add(h.aliases[0]);
+            out.add(h.getAliases()[0]);
         });
         return out;
     }
@@ -42,5 +42,16 @@ public class HelpCommandHelper {
 
     static String notFound(){
         return "This command was not found.";
+    }
+
+    static String listToString(ArrayList<String> strings){
+        StringBuilder builder = new StringBuilder();
+        strings.forEach(s -> {
+            builder.append(s).append(", ");
+        });
+        String out = builder.toString();
+        if(out.endsWith(", "))
+            out = builder.replace(builder.lastIndexOf(", "), builder.lastIndexOf(", ") + 1, "").toString();
+        return "`" + out + "`";
     }
 }

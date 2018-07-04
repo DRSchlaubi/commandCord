@@ -9,11 +9,11 @@ import me.schlaubi.commandcord.command.permission.Permissions;
 
 public abstract class GeneralCommandHandler {
 
-    public String[] aliases;
-    public CommandType type;
-    public Permissions permissions;
-    public String description;
-    public String usage;
+    private final String[] aliases;
+    private final CommandType type;
+    private final Permissions permissions;
+    private final String description;
+    private final String usage;
 
 
     /**
@@ -30,5 +30,25 @@ public abstract class GeneralCommandHandler {
         this.permissions = permissions;
         this.description = description;
         this.usage = usage;
+    }
+
+    public String[] getAliases() {
+        return aliases;
+    }
+
+    public CommandType getType() {
+        return type;
+    }
+
+    public Permissions getPermissions() {
+        return permissions;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getUsage() {
+        return usage;
     }
 }

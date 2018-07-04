@@ -30,4 +30,12 @@ public class Member {
     public static Member fromJDA(net.dv8tion.jda.core.entities.Member member){
         return new Member(member.getUser().getId(), member.getUser().getId());
     }
+
+    public String getGuildId() {
+        return guildId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
 }

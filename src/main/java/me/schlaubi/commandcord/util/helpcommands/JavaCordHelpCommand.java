@@ -35,9 +35,9 @@ public class JavaCordHelpCommand extends JavaCordHandler {
             invocation.getChannel().sendMessage("", builder);
         } else {
             if(!manager.getCommandAssociations().containsKey(args[0]))
-                invocation.getChannel().sendMessage("",new EmbedBuilder().setTitle(HelpCommandHelper.notFoundTitle()).setDescription(HelpCommandHelper.notFound()));
+                invocation.getChannel().sendMessage("", new EmbedBuilder().setTitle(HelpCommandHelper.notFoundTitle()).setDescription(HelpCommandHelper.notFound()));
             GeneralCommandHandler handler = HelpCommandHelper.getCommandByAlias(args[0]);
-            invocation.getChannel().sendMessage("",new EmbedBuilder().setTitle(handler.aliases[0]).setDescription("__" + handler.description + "__\n`" + handler.usage + "`"));
+            invocation.getChannel().sendMessage("", new EmbedBuilder().setTitle("'" + handler.getAliases()[0] + "' command help").setDescription(handler.getDescription()).addField("Usage", handler.getUsage(), false));
         }
         return null;
     }

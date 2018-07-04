@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="commandcord">
+    <output-path>$PROJECT_DIR$/commandcord.examples/libs</output-path>
+    <root id="archive" name="commandcord.jar">
+      <element id="module-output" name="commandCord" />
+    </root>
+  </artifact>
+</component>

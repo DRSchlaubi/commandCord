@@ -14,19 +14,22 @@ import java.util.Map;
 
 public class CommandManager {
 
-    private boolean useGuildPrefixes;
+    protected boolean useGuildPrefixes;
     private PermissionProvider permissionProvider;
-    private PrefixProvider prefixProvider;
-    private String defaultPrefix;
+    protected PrefixProvider prefixProvider;
+    protected String defaultPrefix;
     private Object api;
     public EventManager eventManager = new EventManager();
-    private final Map<String, GeneralCommandHandler> commandAssociations = new HashMap<>();
+    private CommandParser parser;
+    protected final Map<String, GeneralCommandHandler> commandAssociations = new HashMap<>();
 
-    public CommandManager(boolean useGuildPrefixes, PermissionProvider permissionProvider, PrefixProvider prefixProvider, String defaultPrefix){
+    public CommandManager(boolean useGuildPrefixes, PermissionProvider permissionProvider, PrefixProvider prefixProvider, String defaultPrefix, CommandParser parser, Object api){
         this.useGuildPrefixes = useGuildPrefixes;
         this.permissionProvider = permissionProvider;
         this.prefixProvider = prefixProvider;
         this.defaultPrefix = defaultPrefix;
+        this.parser = parser;
+        this.api = api;
     }
 
     public PermissionProvider getPermissionProvider(){
@@ -37,14 +40,23 @@ public class CommandManager {
      * Registers a command
      * @param handler CommandHandler that is to be added
      */
-    public void register(GeneralCommandHandler handler){
-        for(String alias : handler.aliases){
+    public void registerCommand(GeneralCommandHandler handler){
+        for(String alias : handler.getAliases()){
             //Check if alias is already taken
             if(commandAssociations.containsKey(alias))
                 System.err.println("Warning: Alias " + alias + " is already used by command handler " + commandAssociations.get(alias).toString());
             else
-                commandAssociations.put(alias, handler);
+                commandAssociations.put(alias.toLowerCase(), handler);
         }
+    }
+
+    /**
+     * Registers more command handlers
+     * @param handlers CommandHandler that is to be added
+     */
+    public void registerCommands(GeneralCommandHandler... handlers){
+        for (GeneralCommandHandler handler : handlers)
+            registerCommand(handler);
     }
 
     /**
@@ -70,39 +82,8 @@ public class CommandManager {
            });
     }
 
-    protected GeneralCommandHandler getHandlerByAlias(String alias){
-        return commandAssociations.get(alias);
-    }
-
     public void parse(String message, String guildId, String textChannelId, String messageId){
-
-    }
-
-    protected boolean isCommand(String message, String guildId){
-        if(useGuildPrefixes)
-            return message.startsWith(defaultPrefix) || message.startsWith(prefixProvider.getPrefix(guildId));
-        else
-            return message.startsWith(defaultPrefix);
-    }
-
-    protected String[] getArgs(String message, String guildId){
-        String rawArgs = replacePrefix(message, guildId);
-        return rawArgs.replace(rawArgs.split(" ")[0], "").split(" ");
-    }
-
-    protected String getAlias(String message, String guildId){
-        return replacePrefix(message,guildId).split(" ")[0];
-    }
-
-    private String replacePrefix(String message, String guildId){
-        if(useGuildPrefixes) {
-            if(message.startsWith(defaultPrefix))
-                message = message.replaceFirst(defaultPrefix, "");
-            else
-                message = message.replaceFirst(prefixProvider.getPrefix(guildId), "");
-        } else
-            message = message.replaceFirst(defaultPrefix, "");
-        return message;
+        parser.parse(message, guildId, textChannelId, messageId);
     }
 
     public Object getApi(){

@@ -3,7 +3,9 @@ package me.schlaubi.commandcord.core;
 import me.schlaubi.commandcord.CommandCord;
 import me.schlaubi.commandcord.command.PrefixProvider;
 import me.schlaubi.commandcord.command.permission.PermissionProvider;
-import me.schlaubi.commandcord.core.managers.JDAManager;
+import me.schlaubi.commandcord.core.parser.Discord4JParser;
+import me.schlaubi.commandcord.core.parser.JDAParser;
+import me.schlaubi.commandcord.core.parser.JavaCordParser;
 
 /**
  * @author Schlaubi / Michael Rittmeister
@@ -12,7 +14,6 @@ import me.schlaubi.commandcord.core.managers.JDAManager;
 public class CommandManagerBuilder {
 
     private APIWrapper wrapper;
-    private boolean parseEdits = false;
     private boolean useGuildPrefixes = false;
     private PermissionProvider permissionProvider;
     private PrefixProvider prefixProvider;
@@ -23,42 +24,36 @@ public class CommandManagerBuilder {
         this.wrapper = apiWrapper;
     }
 
-    public void enableMessageEditParsing(boolean parseEdits) {
-        this.parseEdits = parseEdits;
-    }
-
-    public void setPermissionProvider(PermissionProvider permissionProvider) {
+    public CommandManagerBuilder setPermissionProvider(PermissionProvider permissionProvider) {
         this.permissionProvider = permissionProvider;
+        return this;
     }
 
-    public void setPrefixProvider(PrefixProvider prefixProvider) {
+    public CommandManagerBuilder setPrefixProvider(PrefixProvider prefixProvider) {
         this.prefixProvider = prefixProvider;
+        return this;
     }
 
-    public void setDefaultPrefix(String defaultPrefix) {
+    public CommandManagerBuilder setDefaultPrefix(String defaultPrefix) {
         this.defaultPrefix = defaultPrefix;
+        return this;
     }
 
-    public void setApi(Object api) {
+    public CommandManagerBuilder setApi(Object api) {
         this.api = api;
+        return this;
     }
 
-    public void enableGuildPrefixes(boolean useGuildPrefixes) {
+    public CommandManagerBuilder enableGuildPrefixes(boolean useGuildPrefixes) {
         this.useGuildPrefixes = useGuildPrefixes;
+        return this;
     }
 
     public CommandManager build() {
         runChecks();
-        CommandManager out = new CommandManager(useGuildPrefixes, permissionProvider, prefixProvider, defaultPrefix);
+        CommandManager out = new CommandManager(useGuildPrefixes, permissionProvider, prefixProvider, defaultPrefix, getParser(), api);
         CommandCord.setInstance(out);
         return out;
-    }
-
-    public CommandManager buildJDA(){
-        runChecks();
-        if(!wrapper.equals(APIWrapper.JDA))
-            throw new IllegalStateException("You cannot build an JDA manager when APIwrapper is defined as " + wrapper.name);
-        return new JDAManager(useGuildPrefixes, permissionProvider, prefixProvider, defaultPrefix);
     }
 
     private void runChecks(){
@@ -70,6 +65,15 @@ public class CommandManagerBuilder {
             throw new IllegalArgumentException("Default prefix cannot be null");
         if(api == null)
             throw new IllegalArgumentException("API cannot be null");
+    }
+
+    private CommandParser getParser(){
+        if(wrapper.equals(APIWrapper.JDA))
+            return new JDAParser();
+        else if(wrapper.equals(APIWrapper.DISCORD4J))
+            return new Discord4JParser();
+        else
+            return new JavaCordParser();
     }
 
 

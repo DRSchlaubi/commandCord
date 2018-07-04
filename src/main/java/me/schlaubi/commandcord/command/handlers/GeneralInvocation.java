@@ -8,6 +8,7 @@ import java.util.Arrays;
  */
 
 public class GeneralInvocation {
+
     private final String[] args;
     private final String prefix;
 

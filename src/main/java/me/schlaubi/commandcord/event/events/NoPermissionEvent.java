@@ -7,10 +7,9 @@ import me.schlaubi.commandcord.command.handlers.GeneralInvocation;
  * @author Schlaubi / Michael Rittmeister
  */
 
-public class CommandExecutedEvent extends GeneralCommandEvent{
+public class NoPermissionEvent extends GeneralCommandEvent {
 
-
-    public CommandExecutedEvent(GeneralInvocation invocation, GeneralCommandHandler handler) {
+    public NoPermissionEvent(GeneralInvocation invocation, GeneralCommandHandler handler) {
         super(invocation, handler);
     }
 }

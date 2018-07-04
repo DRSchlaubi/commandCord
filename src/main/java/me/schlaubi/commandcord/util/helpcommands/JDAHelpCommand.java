@@ -11,6 +11,7 @@ import net.dv8tion.jda.core.MessageBuilder;
 import net.dv8tion.jda.core.entities.Message;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * @author Schlaubi / Michael Rittmeister
@@ -30,16 +31,19 @@ public class JDAHelpCommand extends JDACommandHandler {
         if(args.length == 0) {
             EmbedBuilder builder = new EmbedBuilder()
                     .setColor(Color.cyan);
-            for (Object o : CommandType.class.getDeclaringClass().getEnumConstants()) {
-                CommandType category = ((CommandType) o);
-                builder.addField(category.getDisplayName(), HelpCommandHelper.getNamesByType(category).toString(), false);
+            for (CommandType commandType : CommandType.class.getEnumConstants()) {
+                ArrayList<String> commandNames = HelpCommandHelper.getNamesByType(commandType);
+                if(commandNames.isEmpty()) continue;
+                builder.addField(commandType.getDisplayName(), HelpCommandHelper.listToString(commandNames), false);
             }
+
+
             return new MessageBuilder().setEmbed(builder.build()).build();
         } else {
             if(!manager.getCommandAssociations().containsKey(args[0]))
                 return new MessageBuilder().setEmbed(new EmbedBuilder().setTitle(HelpCommandHelper.notFoundTitle()).setDescription(HelpCommandHelper.notFound()).build()).build();
             GeneralCommandHandler handler = HelpCommandHelper.getCommandByAlias(args[0]);
-            return new MessageBuilder().setEmbed(new EmbedBuilder().setTitle(handler.aliases[0]).setDescription("__" + handler.description + "__\n`" + handler.usage + "`").build()).build();
+            return new MessageBuilder().setEmbed(new EmbedBuilder().setTitle("'" + handler.getAliases()[0] + "' command help").setDescription(handler.getDescription()).addField("Usage", handler.getUsage(), false).build()).build();
         }
     }
 

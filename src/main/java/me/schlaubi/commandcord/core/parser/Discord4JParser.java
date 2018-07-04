@@ -1,10 +1,11 @@
-package me.schlaubi.commandcord.core.managers;
+package me.schlaubi.commandcord.core.parser;
 
 import me.schlaubi.commandcord.CommandCord;
 import me.schlaubi.commandcord.command.PrefixProvider;
 import me.schlaubi.commandcord.command.handlers.Discord4JCommandHandler;
 import me.schlaubi.commandcord.command.permission.PermissionProvider;
 import me.schlaubi.commandcord.core.CommandManager;
+import me.schlaubi.commandcord.core.CommandParser;
 import me.schlaubi.commandcord.event.events.CommandExecutedEvent;
 import me.schlaubi.commandcord.event.events.CommandFailedEvent;
 import sx.blah.discord.api.IDiscordClient;
@@ -15,11 +16,7 @@ import sx.blah.discord.handle.impl.obj.Message;
  * @author Schlaubi / Michael Rittmeister
  */
 
-public class Discord4JManager extends CommandManager {
-
-    public Discord4JManager(boolean useGuildPrefixes, PermissionProvider permissionProvider, PrefixProvider prefixProvider, String defaultPrefix) {
-        super(useGuildPrefixes, permissionProvider, prefixProvider, defaultPrefix);
-    }
+public class Discord4JParser extends CommandParser {
 
     @Override
     public void parse(String message, String guildId, String textChannelId, String messageId) {
