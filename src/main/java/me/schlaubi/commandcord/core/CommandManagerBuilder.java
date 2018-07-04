@@ -18,12 +18,16 @@ public class CommandManagerBuilder {
 
     private APIWrapper wrapper;
     private boolean useGuildPrefixes = false;
+    private boolean useBlackList = false;
+    private boolean authorIsAdmin = true;
+    private boolean deleteInvokeMessage = true;
+    private int deleteCommandMessage = 0;
+    private String defaultPrefix;
     private PermissionProvider permissionProvider;
     private PrefixProvider prefixProvider;
-    private String defaultPrefix;
-    private boolean useBlackList = false;
     private BlackListProvider blackListProvider;
     private Object api;
+
     private BeforeTasks beforeTasksHandler = new DefaultBeforeTasks();
 
     public CommandManagerBuilder(APIWrapper apiWrapper){
@@ -70,9 +74,24 @@ public class CommandManagerBuilder {
         return this;
     }
 
+    public CommandManagerBuilder authorIsAdmin(boolean enable){
+        this.authorIsAdmin = enable;
+        return this;
+    }
+
+    public CommandManagerBuilder deleteInvokeMessages(boolean enable){
+        this.deleteInvokeMessage = enable;
+        return this;
+    }
+
+    public CommandManagerBuilder deleteCommandMessages(int deleteTime){
+        this.deleteCommandMessage = deleteTime;
+        return this;
+    }
+
     public CommandManager build() {
         runChecks();
-        CommandManager out = new CommandManager(useGuildPrefixes, permissionProvider, prefixProvider, defaultPrefix, getParser(), api, beforeTasksHandler, useBlackList, blackListProvider);
+        CommandManager out = new CommandManager(useGuildPrefixes, permissionProvider, prefixProvider, defaultPrefix, getParser(), api, beforeTasksHandler, useBlackList, blackListProvider, authorIsAdmin, deleteInvokeMessage, deleteCommandMessage);
         CommandCord.setInstance(out);
         return out;
     }

@@ -15,6 +15,8 @@ import me.schlaubi.commandcord.event.events.CommandExecutedEvent;
 import me.schlaubi.commandcord.event.events.CommandFailedEvent;
 import me.schlaubi.commandcord.event.events.NoPermissionEvent;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -30,6 +32,10 @@ public class JavaCordParser extends CommandParser {
         if(handler == null) return;
         JavaCordHandler.CommandInvocation invocation = parseInvocation(message, guildId, textChannelId, messageId, handler);
 
+        /* Delete message if enabled */
+        if(CommandCord.getInstance().isDeleteInvokeMessage())
+            invocation.getMessage().delete();
+
         if(!handler.getPermissions().isCovered(Member.fromJavaCord(invocation.getUser(), invocation.getServer()))){
             CommandCord.getInstance().getEventManager().call(new NoPermissionEvent(invocation, handler));
             return;
@@ -37,8 +43,16 @@ public class JavaCordParser extends CommandParser {
 
         try {
             String answer = handler.run(invocation);
-            if(answer != null)
-                invocation.getChannel().sendMessage(answer);
+            if(answer != null) {
+                Message msg = invocation.getChannel().sendMessage(answer).get();
+                if(CommandCord.getInstance().getDeleteCommandMessage() != 0)
+                    new Timer().schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            msg.delete();
+                        }
+                    }, CommandCord.getInstance().getDeleteCommandMessage() * 1000);
+            }
         } catch (Exception e){
             CommandCord.getInstance().getEventManager().call(new CommandFailedEvent(invocation, handler, e));
         }

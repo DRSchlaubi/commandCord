@@ -1,11 +1,8 @@
 package me.schlaubi.commandcord.core.parser;
 
 import me.schlaubi.commandcord.CommandCord;
-import me.schlaubi.commandcord.command.PrefixProvider;
 import me.schlaubi.commandcord.command.handlers.Discord4JCommandHandler;
 import me.schlaubi.commandcord.command.permission.Member;
-import me.schlaubi.commandcord.command.permission.PermissionProvider;
-import me.schlaubi.commandcord.core.CommandManager;
 import me.schlaubi.commandcord.core.CommandParser;
 import me.schlaubi.commandcord.event.events.CommandExecutedEvent;
 import me.schlaubi.commandcord.event.events.CommandFailedEvent;
@@ -13,6 +10,10 @@ import me.schlaubi.commandcord.event.events.NoPermissionEvent;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.handle.impl.obj.Guild;
 import sx.blah.discord.handle.impl.obj.Message;
+import sx.blah.discord.handle.obj.IMessage;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * @author Schlaubi / Michael Rittmeister
@@ -25,7 +26,11 @@ public class Discord4JParser extends CommandParser {
         if(!isCommand(message, guildId)) return;
         Discord4JCommandHandler handler = (Discord4JCommandHandler) getHandlerByAlias(getAlias(message, guildId));
         if (handler == null) return;
-        Discord4JCommandHandler.CommandInvocation invocation = parseInvocation(message, guildId, textChannelId, messageId);
+        Discord4JCommandHandler.CommandInvocation invocation = parseInvocation(message, guildId, messageId);
+
+        /* Delete message if enabled */
+        if(CommandCord.getInstance().isDeleteInvokeMessage())
+            invocation.getMessage().delete();
 
         if(!handler.getPermissions().isCovered(Member.fromDiscord4J(invocation.getUser(), invocation.getGuild()))){
             CommandCord.getInstance().getEventManager().call(new NoPermissionEvent(invocation, handler));
@@ -34,16 +39,24 @@ public class Discord4JParser extends CommandParser {
 
         try{
             String answer = handler.run(invocation);
-            if(answer != null)
-                invocation.getChannel().sendMessage(answer);
+            if(answer != null) {
+                IMessage msg = invocation.getChannel().sendMessage(answer);
+                if(CommandCord.getInstance().getDeleteCommandMessage() != 0)
+                    new Timer().schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            msg.delete();
+                        }
+                    }, CommandCord.getInstance().getDeleteCommandMessage() * 1000);
+            }
         }  catch (Exception e){
             CommandCord.getInstance().getEventManager().call(new CommandFailedEvent(invocation, handler, e));
         }
         CommandCord.getInstance().getEventManager().call(new CommandExecutedEvent(invocation, handler));
     }
 
-    private Discord4JCommandHandler.CommandInvocation parseInvocation(String message, String guildId, String textChannelId, String messageId){
-        return new Discord4JCommandHandler.CommandInvocation(getArgs(message,guildId), getMessageById(messageId, guildId), getAlias(message, guildId));
+    private Discord4JCommandHandler.CommandInvocation parseInvocation(String message, String guildId, String messageId){
+        return new Discord4JCommandHandler.CommandInvocation(getArgs(message,guildId), getMessageById(guildId, messageId), getAlias(message, guildId));
     }
 
     public Message getMessageById(String guildId, String messageId){

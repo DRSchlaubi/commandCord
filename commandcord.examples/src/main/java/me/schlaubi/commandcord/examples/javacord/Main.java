@@ -34,6 +34,7 @@ public class Main {
                         .setPermissionProvider(new PermissionProvider())
                         .enableBlacklist(true)
                         .setBlacklistProvider(new BlackListProvider())
+                        .deleteCommandMessages(5)
                         .setApi(api).build();
                 /* Register commands */
                 manager.registerCommands(

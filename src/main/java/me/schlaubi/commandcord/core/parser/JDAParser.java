@@ -16,6 +16,8 @@ import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.TextChannel;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author Schlaubi / Michael Rittmeister
  */
@@ -29,6 +31,10 @@ public class JDAParser extends CommandParser {
         if(handler == null) return;
         JDACommandHandler.CommandInvocation invocation = parseInvocation(message, guildId, textChannelId, messageId);
 
+        /* Delete message if enabled */
+        if(CommandCord.getInstance().isDeleteInvokeMessage())
+            invocation.getMessage().delete().queue();
+
         if(!handler.getPermissions().isCovered(Member.fromJDA(invocation.getMember()))){
             CommandCord.getInstance().getEventManager().call(new NoPermissionEvent(invocation, handler));
             return;
@@ -36,8 +42,11 @@ public class JDAParser extends CommandParser {
 
         try {
             Message answer = handler.run(invocation);
-            if(answer != null)
-                invocation.getChannel().sendMessage(answer).queue();
+            if(answer != null) {
+                Message msg = invocation.getChannel().sendMessage(answer).complete();
+                if(CommandCord.getInstance().getDeleteCommandMessage() != 0)
+                    msg.delete().queueAfter(CommandCord.getInstance().getDeleteCommandMessage(), TimeUnit.SECONDS);
+            }
         } catch (Exception e){
             CommandCord.getInstance().getEventManager().call(new CommandFailedEvent(invocation, handler, e));
         }

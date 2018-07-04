@@ -18,6 +18,9 @@ public class CommandManager {
 
     protected boolean useGuildPrefixes;
     protected boolean useBlacklist;
+    private boolean authorIsAdmin;
+    private boolean deleteInvokeMessage;
+    private int deleteCommandMessage;
     private PermissionProvider permissionProvider;
     protected PrefixProvider prefixProvider;
     protected String defaultPrefix;
@@ -28,7 +31,7 @@ public class CommandManager {
     private BlackListProvider blackListProvider;
     protected final Map<String, GeneralCommandHandler> commandAssociations = new HashMap<>();
 
-    public CommandManager(boolean useGuildPrefixes, PermissionProvider permissionProvider, PrefixProvider prefixProvider, String defaultPrefix, CommandParser parser, Object api, BeforeTasks beforeTasksHandler, boolean useBlackList, BlackListProvider blackListProvider){
+    public CommandManager(boolean useGuildPrefixes, PermissionProvider permissionProvider, PrefixProvider prefixProvider, String defaultPrefix, CommandParser parser, Object api, BeforeTasks beforeTasksHandler, boolean useBlackList, BlackListProvider blackListProvider, boolean authorIsAdmin, boolean deleteInvokeMessage, int deleteCommandMessage){
         this.useGuildPrefixes = useGuildPrefixes;
         this.permissionProvider = permissionProvider;
         this.prefixProvider = prefixProvider;
@@ -38,6 +41,9 @@ public class CommandManager {
         this.useBlacklist = useBlackList;
         this.blackListProvider = blackListProvider;
         this.beforeTasksHandler = beforeTasksHandler;
+        this.authorIsAdmin = authorIsAdmin;
+        this.deleteInvokeMessage = deleteInvokeMessage;
+        this.deleteCommandMessage = deleteCommandMessage;
     }
 
     public PermissionProvider getPermissionProvider(){
@@ -113,5 +119,15 @@ public class CommandManager {
         return eventManager;
     }
 
+    public boolean isAuthorAdmin() {
+        return authorIsAdmin;
+    }
 
+    public boolean isDeleteInvokeMessage() {
+        return deleteInvokeMessage;
+    }
+
+    public int getDeleteCommandMessage() {
+        return deleteCommandMessage;
+    }
 }

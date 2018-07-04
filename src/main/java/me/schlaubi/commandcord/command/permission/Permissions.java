@@ -27,6 +27,8 @@ public class Permissions {
    public boolean isCovered(Member member){
        if(publicCommand)
            return true;
+       if(CommandCord.getInstance().isAuthorAdmin() && CommandCord.getInstance().getPermissionProvider().isBotAuthor(member))
+           return true;
        if(isGuildOwnerOnly)
            return CommandCord.getInstance().getPermissionProvider().isGuildOwner(member);
        if(isAuthorOnly)
