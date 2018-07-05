@@ -4,25 +4,75 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
     <groupId>me.schlaubi</groupId>
     <artifactId>commandCord</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <bintray.repo>commandCord</bintray.repo>
+        <bintray.package>me.schlaubi.commandcord</bintray.package>
+        <bintray.subject>drschlaubi</bintray.subject>
+
+    </properties>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.2</version>
+                <executions>
+                    <execution>
+                        <id>jar</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <finalName>commandCord-${project.version}-binary</finalName>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.2</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <finalName>commandCord-${project.version}-sources</finalName>
+                    <forceCreation>true</forceCreation>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
-    <modules>
-        <module>commandcord.examples</module>
-    </modules>
 
     <repositories>
         <repository>
@@ -56,14 +106,18 @@
             <!-- This will use the shaded javacord which contains all required dependencies -->
             <classifier>shaded</classifier>
         </dependency>
-        <!-- A SLF4J comaptible logging framework. I would recommend to use logback -->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.1.3</version>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
 
-
+    <distributionManagement>
+        <repository>
+            <id>bintray-drschlaubi-commandCord</id>
+            <name>drschlaubi-commandCord</name>
+            <url>https://api.bintray.com/maven/drschlaubi/commandCord/me.schlaubi.commandcord/;publish=1</url>
+        </repository>
+        <snapshotRepository>
+            <id>bintray-drschlaubi-commandCord</id> <!-- same id with the server in settings.xml -->
+            <name>oss-jfrog-artifactory-snapshots</name>
+            <url>http://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

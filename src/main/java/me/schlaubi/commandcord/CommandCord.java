@@ -25,4 +25,8 @@ public class CommandCord {
     public static final String LICENSE = "GPL-3.0";
 
     public static final String GITHUB_URL = "http://github.com/DRschlaubi/commandCord";
+
+    public static void main(String[] args){
+
+    }
 }

@@ -14,3 +14,7 @@ hs_err_pid*
 /out/
 /.idea/
 /modules/
+/local.properties
+commandcord.examples/target/generated-sources/
+src/main/resources/
+src/test/
