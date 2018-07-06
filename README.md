@@ -1,7 +1,23 @@
 # commandCord
 A very feature rich framework for discord bot commands written in Java
 ## Implementation
-comming soon ... 
+You can import the library you found on the releases page via Build Path ([IntelliJ](https://stackoverflow.com/questions/34832059/how-to-add-a-project-to-build-path-in-intellij-idea), [Eclipse](https://wiki.eclipse.org/FAQ_How_do_I_add_an_extra_library_to_my_project%27s_classpath%3F))
+### Information: Maven repository is WIP
+[![Download](https://api.bintray.com/packages/drschlaubi/commandCord/me.schlaubi.commandcord/images/download.svg) ](https://bintray.com/drschlaubi/commandCord/me.schlaubi.commandcord/_latestVersion)
+Maven:
+```XML
+<repository>
+        <id>jcenter</id>
+        <url>http://jcenter.bintray.com</url>
+</repository>        
+```
+Gradle:
+```JSON
+repositories {
+    jcenter()
+}
+```
+
 
 # Supported libraries
 * [JDA](https://github.com/DV8FromTheWorld/JDA)
