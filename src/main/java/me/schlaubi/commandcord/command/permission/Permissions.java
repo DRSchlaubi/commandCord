@@ -37,22 +37,44 @@ public class Permissions {
        return CommandCord.getInstance().getPermissionProvider().hasPermissionNode(member, permissionNode);
    }
 
+    /**
+     * Everybody can execute the command
+     * @return Permissions object
+     */
    public static Permissions everyone(){
        return new Permissions("public", true, false, false, 0);
    }
 
+    /**
+     * Only the bot author can execute the command
+     * @return Permissions object
+     */
    public static Permissions authorOnly(){
        return new Permissions("authorOnly", false, true, false, 0);
    }
 
+    /**
+     * Only the guild owner can execute the command
+     * @return Permissions object
+     */
    public static Permissions guildOwnerOnly(){
        return new Permissions("guildOwnerOnly", false, false, true, 0);
    }
 
+    /**
+     * Only users who has the provided permissionNode can execute the command
+     * @param permissionNode The permissionNode, which is required to execute the command
+     * @return Permissions object
+     */
    public static Permissions node(String permissionNode){
        return new Permissions(permissionNode, false, false, false, 0);
    }
 
+    /**
+     * Only users who has the provided permissionNode can execute the command
+     * @param permissionLevel The permissionLevel, which is required to execute the command
+     * @return Permissions object
+     */
    public static Permissions level(int permissionLevel){
        return new Permissions("permLevel", false, false,false, permissionLevel);
    }

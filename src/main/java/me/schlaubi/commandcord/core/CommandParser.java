@@ -9,6 +9,9 @@ public abstract class CommandParser {
 
     public abstract void parse(String message, String guildId, String textChannelId, String messageId);
 
+    /**
+     * Checks if a message is a command (starts with the right prefix)
+     */
     protected boolean isCommand(String message, String guildId){
         CommandManager instance = CommandCord.getInstance();
         if(instance.useGuildPrefixes)
@@ -17,6 +20,9 @@ public abstract class CommandParser {
             return message.startsWith(instance.defaultPrefix);
     }
 
+    /**
+     * Split arguments
+     */
     protected String[] getArgs(String message, String guildId){
         String rawArgs = replacePrefix(message, guildId);
         String[] out = rawArgs.replaceFirst(getAlias(message, guildId), "").replaceFirst(" ", "").split(" ");
@@ -25,10 +31,16 @@ public abstract class CommandParser {
         return out;
     }
 
+    /**
+     * Gets the used alias of the message
+     */
     protected String getAlias(String message, String guildId){
         return replacePrefix(message,guildId).split(" ")[0];
     }
 
+    /**
+     * Replaces the message
+     */
     protected String replacePrefix(String message, String guildId){
         CommandManager instance = CommandCord.getInstance();
         if(instance.useGuildPrefixes) {
@@ -41,6 +53,9 @@ public abstract class CommandParser {
         return message;
     }
 
+    /**
+     * Get the commandHandler by the used alias
+     */
     protected GeneralCommandHandler getHandlerByAlias(String alias){
         return CommandCord.getInstance().commandAssociations.get(alias.toLowerCase());
     }

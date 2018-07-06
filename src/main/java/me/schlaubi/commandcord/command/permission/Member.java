@@ -16,7 +16,7 @@ public class Member {
 
     private Member(String userId, String guildId){
         this.guildId = guildId;
-        this.userId = guildId;
+        this.userId = userId;
     }
 
     public static Member fromJavaCord(User user, Server server){

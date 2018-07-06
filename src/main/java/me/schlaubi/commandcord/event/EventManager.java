@@ -12,6 +12,10 @@ public class EventManager {
 
     public ArrayList<Listener> listeners = new ArrayList<>();
 
+    /**
+     * Register a eventListener
+     * @param listener Listener object
+     */
     public void registerListener(Listener listener){
         if(!(listener instanceof EventAdapter))
             throw new IllegalArgumentException("Listener needs to extend EventAdapter");
@@ -19,6 +23,10 @@ public class EventManager {
             listeners.add(listener);
     }
 
+    /**
+     * Removes a eventListener
+     * @param listener Listener object
+     */
     public void unregister(Listener listener){
         if(!(listener instanceof EventAdapter))
             throw new IllegalArgumentException("Listener needs to extend EventAdapter");
@@ -28,7 +36,9 @@ public class EventManager {
     public void call(Event event){
         listeners.forEach(l -> {
             try {
-                ((EventAdapter) l).onEvent(event);
+                new Thread(() -> {
+                    ((EventAdapter) l).onEvent(event);
+                }).start();
             } catch (Exception e){
                 e.printStackTrace();
             }

@@ -77,7 +77,7 @@ public class CommandManager {
      * Unregisters an alias
      * @param alias Alias that is to be removed
      */
-    public void unregister(String alias){
+    public void unregisterCommand(String alias){
         //Check if alias is used
         if(commandAssociations.containsKey(alias))
             System.err.println("Warning: Alias " + alias + " is not registred");
@@ -85,7 +85,7 @@ public class CommandManager {
             commandAssociations.remove(alias);
     }
 
-    public void unregister(GeneralCommandHandler handler){
+    public void unregisterCommand(GeneralCommandHandler handler){
         //Check if alias is used
         if(commandAssociations.containsValue(handler))
             System.err.println("Warning: Handler " + handler+ " is not registred");
@@ -96,6 +96,9 @@ public class CommandManager {
            });
     }
 
+    /**
+     * Parse a command
+     */
     public void parse(String message, String guildId, String textChannelId, String messageId){
         /* Run user specified before tasks*/
         if(!beforeTasksHandler.run(message, guildId, textChannelId, messageId)) return;

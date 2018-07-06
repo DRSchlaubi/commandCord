@@ -34,56 +34,95 @@ public class CommandManagerBuilder {
         this.wrapper = apiWrapper;
     }
 
+    /**
+     * Sets the provider for permissions
+     * @param permissionProvider Provider for permissions {@link me.schlaubi.commandcord.command.permission.PermissionProvider}
+     */
     public CommandManagerBuilder setPermissionProvider(PermissionProvider permissionProvider) {
         this.permissionProvider = permissionProvider;
         return this;
     }
 
+    /**
+     * Sets the provider for prefixes
+     * @param prefixProvider Provider for permissions {@link me.schlaubi.commandcord.command.PrefixProvider}
+     */
     public CommandManagerBuilder setPrefixProvider(PrefixProvider prefixProvider) {
         this.prefixProvider = prefixProvider;
         return this;
     }
 
+    /**
+     * Sets the default prefix
+     * @param defaultPrefix prefix that is used on every guild
+     */
     public CommandManagerBuilder setDefaultPrefix(String defaultPrefix) {
         this.defaultPrefix = defaultPrefix;
         return this;
     }
 
+    /**
+     * Sets the Discord api wrapper which is needed to get guild information
+     * @param api Your api instance {@link net.dv8tion.jda.core.JDA}, {@link de.btobastian.javacord.DiscordAPI}, {@link sx.blah.discord.api.IDiscordClient}
+     */
     public CommandManagerBuilder setApi(Object api) {
         this.api = api;
         return this;
     }
 
+    /**
+     * Enabled guild specific prefrixes
+     */
     public CommandManagerBuilder enableGuildPrefixes(boolean useGuildPrefixes) {
         this.useGuildPrefixes = useGuildPrefixes;
         return this;
     }
 
+    /**
+     * Enabled task that were run before every command
+     */
     public CommandManagerBuilder setBeforeTasksHandler(BeforeTasks beforeTasksHandler) {
         this.beforeTasksHandler = beforeTasksHandler;
         return this;
     }
 
+    /**
+     * Enabled blacklist
+     */
     public CommandManagerBuilder enableBlacklist(boolean enable){
         this.useBlackList = enable;
         return this;
     }
 
+    /**
+     * Sets blacklist provider (is necessary to use blacklist)
+     * @param blacklistProvider Provider for blacklist {@link me.schlaubi.commandcord.command.BlackListProvider}
+     */
     public CommandManagerBuilder setBlacklistProvider(BlackListProvider blacklistProvider){
         this.blackListProvider = blacklistProvider;
         return this;
     }
 
+    /**
+     * Gives bot auhtors admin rights for every command on all servers
+     */
     public CommandManagerBuilder authorIsAdmin(boolean enable){
         this.authorIsAdmin = enable;
         return this;
     }
 
+    /**
+     * Deleted messages that invokes commands
+     */
     public CommandManagerBuilder deleteInvokeMessages(boolean enable){
         this.deleteInvokeMessage = enable;
         return this;
     }
 
+    /**
+     * Deletes bot's response to command
+     * @param deleteTime Delay till message should be deleted
+     */
     public CommandManagerBuilder deleteCommandMessages(int deleteTime){
         this.deleteCommandMessage = deleteTime;
         return this;
