@@ -1,8 +1,8 @@
 # commandCord
 A very feature rich framework for discord bot commands written in Java
 ## Implementation
-You can import the library you found on the releases page via Build Path ([IntelliJ](https://stackoverflow.com/questions/34832059/how-to-add-a-project-to-build-path-in-intellij-idea), [Eclipse](https://wiki.eclipse.org/FAQ_How_do_I_add_an_extra_library_to_my_project%27s_classpath%3F))
-[![Maven Central](https://img.shields.io/maven-central/v/me.schlaubi/commandCord.svg?label=Maven%20Central)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22me.schlaubi%22%20a%3A%22commandCord%22)
+You can import the library you found on the releases page via Build Path ([IntelliJ](https://stackoverflow.com/questions/34832059/how-to-add-a-project-to-build-path-in-intellij-idea), [Eclipse](https://wiki.eclipse.org/FAQ_How_do_I_add_an_extra_library_to_my_project%27s_classpath%3F)) <br>
+[![Maven Central](https://img.shields.io/maven-central/v/me.schlaubi/commandCord.svg?label=Maven%20Central)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22me.schlaubi%22%20a%3A%22commandCord%22)<br>
 Maven
 ```XML
 <dependency>
