@@ -38,7 +38,7 @@ public class Discord4JHelpCommand extends Discord4JCommandHandler {
             if (!manager.getCommandAssociations().containsKey(args[0]))
                 invocation.getChannel().sendMessage(new EmbedBuilder().withTitle(HelpCommandHelper.notFoundTitle()).withDesc(HelpCommandHelper.notFound()).build());
             GeneralCommandHandler handler = HelpCommandHelper.getCommandByAlias(args[0]);
-            invocation.getChannel().sendMessage(new EmbedBuilder().withTitle("'" + handler.getAliases()[0] + "' command help").withDesc(handler.getDescription()).appendField("Usage", handler.getUsage(), false).build());
+            invocation.getChannel().sendMessage(new EmbedBuilder().withTitle("'" + handler.getAliases()[0] + "' command help").withDesc(handler.getDescription()).appendField("Usage", HelpCommandHelper.getUsage(handler), false).build());
 
         }
         return null;

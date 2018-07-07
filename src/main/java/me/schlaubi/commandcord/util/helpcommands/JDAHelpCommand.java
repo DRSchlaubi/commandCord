@@ -43,7 +43,7 @@ public class JDAHelpCommand extends JDACommandHandler {
             if (!manager.getCommandAssociations().containsKey(args[0]))
                 return new MessageBuilder().setEmbed(new EmbedBuilder().setTitle(HelpCommandHelper.notFoundTitle()).setDescription(HelpCommandHelper.notFound()).build()).build();
             GeneralCommandHandler handler = HelpCommandHelper.getCommandByAlias(args[0]);
-            return new MessageBuilder().setEmbed(new EmbedBuilder().setTitle("'" + handler.getAliases()[0] + "' command help").setDescription(handler.getDescription()).addField("Usage", handler.getUsage(), false).build()).build();
+            return new MessageBuilder().setEmbed(new EmbedBuilder().setTitle("'" + handler.getAliases()[0] + "' command help").setDescription(handler.getDescription()).addField("Usage", HelpCommandHelper.getUsage(handler), false).build()).build();
         }
     }
 

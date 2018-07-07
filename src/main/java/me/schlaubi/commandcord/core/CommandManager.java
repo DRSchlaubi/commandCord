@@ -136,4 +136,6 @@ public class CommandManager {
     public int getDeleteCommandMessage() {
         return deleteCommandMessage;
     }
+
+    public String getDefaultPrefix() { return defaultPrefix; }
 }

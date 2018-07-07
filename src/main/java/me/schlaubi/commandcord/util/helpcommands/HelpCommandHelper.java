@@ -54,4 +54,8 @@ public class HelpCommandHelper {
             out = builder.replace(builder.lastIndexOf(", "), builder.lastIndexOf(", ") + 1, "").toString();
         return "`" + out + "`";
     }
+
+    static String getUsage(GeneralCommandHandler handler){
+        return CommandCord.getInstance().getDefaultPrefix() + handler.getAliases()[0] + " " + handler.getUsage();
+    }
 }
