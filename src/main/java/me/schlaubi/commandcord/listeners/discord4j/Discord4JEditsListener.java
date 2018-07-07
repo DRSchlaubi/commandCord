@@ -8,7 +8,7 @@ import sx.blah.discord.handle.impl.obj.Message;
  * @author Schlaubi / Michael Rittmeister
  */
 
-public class Discord4JEditsListener extends Discord4JHelper implements IListener<MessageEditEvent>{
+public class Discord4JEditsListener extends Discord4JHelper implements IListener<MessageEditEvent> {
 
     @Override
     public void handle(MessageEditEvent messageEditEvent) {

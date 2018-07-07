@@ -13,16 +13,16 @@ import java.util.Map;
 
 public class HelpCommandHelper {
 
-    private static ArrayList<GeneralCommandHandler> getHandlersByType(CommandType type){
+    private static ArrayList<GeneralCommandHandler> getHandlersByType(CommandType type) {
         ArrayList<GeneralCommandHandler> out = new ArrayList<>();
         CommandCord.getInstance().getCommandAssociations().values().forEach(h -> {
-            if(h.getType().equals(type))
+            if (h.getType().equals(type))
                 out.add(h);
         });
         return out;
     }
 
-    static ArrayList<String> getNamesByType(CommandType type){
+    static ArrayList<String> getNamesByType(CommandType type) {
         ArrayList<String> out = new ArrayList<>();
         getHandlersByType(type).forEach(h -> {
             out.add(h.getAliases()[0]);
@@ -30,27 +30,27 @@ public class HelpCommandHelper {
         return out;
     }
 
-    static GeneralCommandHandler getCommandByAlias(String alias){
+    static GeneralCommandHandler getCommandByAlias(String alias) {
         Map<String, GeneralCommandHandler> commands = CommandCord.getInstance().getCommandAssociations();
-        if(!commands.containsKey(alias)) return null;
+        if (!commands.containsKey(alias)) return null;
         return commands.get(alias);
     }
 
-    static String notFoundTitle(){
+    static String notFoundTitle() {
         return "Not found!";
     }
 
-    static String notFound(){
+    static String notFound() {
         return "This command was not found.";
     }
 
-    static String listToString(ArrayList<String> strings){
+    static String listToString(ArrayList<String> strings) {
         StringBuilder builder = new StringBuilder();
         strings.forEach(s -> {
             builder.append(s).append(", ");
         });
         String out = builder.toString();
-        if(out.endsWith(", "))
+        if (out.endsWith(", "))
             out = builder.replace(builder.lastIndexOf(", "), builder.lastIndexOf(", ") + 1, "").toString();
         return "`" + out + "`";
     }

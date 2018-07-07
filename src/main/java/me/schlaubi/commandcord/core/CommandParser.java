@@ -3,8 +3,6 @@ package me.schlaubi.commandcord.core;
 import me.schlaubi.commandcord.CommandCord;
 import me.schlaubi.commandcord.command.handlers.GeneralCommandHandler;
 
-import java.util.Arrays;
-
 public abstract class CommandParser {
 
     public abstract void parse(String message, String guildId, String textChannelId, String messageId);
@@ -12,9 +10,9 @@ public abstract class CommandParser {
     /**
      * Checks if a message is a command (starts with the right prefix)
      */
-    protected boolean isCommand(String message, String guildId){
+    protected boolean isCommand(String message, String guildId) {
         CommandManager instance = CommandCord.getInstance();
-        if(instance.useGuildPrefixes)
+        if (instance.useGuildPrefixes)
             return message.startsWith(instance.defaultPrefix) || message.startsWith(instance.prefixProvider.getPrefix(guildId));
         else
             return message.startsWith(instance.defaultPrefix);
@@ -23,28 +21,28 @@ public abstract class CommandParser {
     /**
      * Split arguments
      */
-    protected String[] getArgs(String message, String guildId){
+    protected String[] getArgs(String message, String guildId) {
         String rawArgs = replacePrefix(message, guildId);
         String[] out = rawArgs.replaceFirst(getAlias(message, guildId), "").replaceFirst(" ", "").split(" ");
-        if(out[0].equals(""))
-            out = new String[] {};
+        if (out[0].equals(""))
+            out = new String[]{};
         return out;
     }
 
     /**
      * Gets the used alias of the message
      */
-    protected String getAlias(String message, String guildId){
-        return replacePrefix(message,guildId).split(" ")[0];
+    protected String getAlias(String message, String guildId) {
+        return replacePrefix(message, guildId).split(" ")[0];
     }
 
     /**
      * Replaces the message
      */
-    protected String replacePrefix(String message, String guildId){
+    protected String replacePrefix(String message, String guildId) {
         CommandManager instance = CommandCord.getInstance();
-        if(instance.useGuildPrefixes) {
-            if(message.startsWith(instance.defaultPrefix))
+        if (instance.useGuildPrefixes) {
+            if (message.startsWith(instance.defaultPrefix))
                 message = message.replaceFirst(instance.defaultPrefix, "");
             else
                 message = message.replaceFirst(instance.prefixProvider.getPrefix(guildId), "");
@@ -56,10 +54,9 @@ public abstract class CommandParser {
     /**
      * Get the commandHandler by the used alias
      */
-    protected GeneralCommandHandler getHandlerByAlias(String alias){
+    protected GeneralCommandHandler getHandlerByAlias(String alias) {
         return CommandCord.getInstance().commandAssociations.get(alias.toLowerCase());
     }
-
 
 
 }

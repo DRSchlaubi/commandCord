@@ -26,6 +26,7 @@ public abstract class JavaCordHandler extends GeneralCommandHandler {
         super(aliases, type, permissions, description, usage);
     }
 
+    public abstract String run(CommandInvocation invocation);
 
     public static class CommandInvocation extends GeneralInvocation {
 
@@ -36,13 +37,20 @@ public abstract class JavaCordHandler extends GeneralCommandHandler {
             this.message = message;
         }
 
-        public Message getMessage(){
+        public Message getMessage() {
             return message;
         }
-        public User getUser() { return message.getAuthor(); }
-        public Channel getChannel() { return message.getChannelReceiver(); }
-        public Server getServer() { return message.getChannelReceiver().getServer(); }
-    }
 
-    public abstract String run(CommandInvocation invocation);
+        public User getUser() {
+            return message.getAuthor();
+        }
+
+        public Channel getChannel() {
+            return message.getChannelReceiver();
+        }
+
+        public Server getServer() {
+            return message.getChannelReceiver().getServer();
+        }
+    }
 }

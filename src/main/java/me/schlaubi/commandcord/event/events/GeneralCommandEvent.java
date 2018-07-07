@@ -7,7 +7,7 @@ import me.schlaubi.commandcord.command.handlers.GeneralInvocation;
  * @author Schlaubi / Michael Rittmeister
  */
 
-public class GeneralCommandEvent implements Event{
+public class GeneralCommandEvent implements Event {
     private GeneralInvocation invocation;
     private GeneralCommandHandler handler;
 

@@ -30,12 +30,13 @@ public class CommandManagerBuilder {
 
     private BeforeTasks beforeTasksHandler = new DefaultBeforeTasks();
 
-    public CommandManagerBuilder(APIWrapper apiWrapper){
+    public CommandManagerBuilder(APIWrapper apiWrapper) {
         this.wrapper = apiWrapper;
     }
 
     /**
      * Sets the provider for permissions
+     *
      * @param permissionProvider Provider for permissions {@link me.schlaubi.commandcord.command.permission.PermissionProvider}
      */
     public CommandManagerBuilder setPermissionProvider(PermissionProvider permissionProvider) {
@@ -45,6 +46,7 @@ public class CommandManagerBuilder {
 
     /**
      * Sets the provider for prefixes
+     *
      * @param prefixProvider Provider for permissions {@link me.schlaubi.commandcord.command.PrefixProvider}
      */
     public CommandManagerBuilder setPrefixProvider(PrefixProvider prefixProvider) {
@@ -54,6 +56,7 @@ public class CommandManagerBuilder {
 
     /**
      * Sets the default prefix
+     *
      * @param defaultPrefix prefix that is used on every guild
      */
     public CommandManagerBuilder setDefaultPrefix(String defaultPrefix) {
@@ -63,6 +66,7 @@ public class CommandManagerBuilder {
 
     /**
      * Sets the Discord api wrapper which is needed to get guild information
+     *
      * @param api Your api instance {@link net.dv8tion.jda.core.JDA}, {@link de.btobastian.javacord.DiscordAPI}, {@link sx.blah.discord.api.IDiscordClient}
      */
     public CommandManagerBuilder setApi(Object api) {
@@ -89,16 +93,17 @@ public class CommandManagerBuilder {
     /**
      * Enabled blacklist
      */
-    public CommandManagerBuilder enableBlacklist(boolean enable){
+    public CommandManagerBuilder enableBlacklist(boolean enable) {
         this.useBlackList = enable;
         return this;
     }
 
     /**
      * Sets blacklist provider (is necessary to use blacklist)
+     *
      * @param blacklistProvider Provider for blacklist {@link me.schlaubi.commandcord.command.BlackListProvider}
      */
-    public CommandManagerBuilder setBlacklistProvider(BlackListProvider blacklistProvider){
+    public CommandManagerBuilder setBlacklistProvider(BlackListProvider blacklistProvider) {
         this.blackListProvider = blacklistProvider;
         return this;
     }
@@ -106,7 +111,7 @@ public class CommandManagerBuilder {
     /**
      * Gives bot auhtors admin rights for every command on all servers
      */
-    public CommandManagerBuilder authorIsAdmin(boolean enable){
+    public CommandManagerBuilder authorIsAdmin(boolean enable) {
         this.authorIsAdmin = enable;
         return this;
     }
@@ -114,16 +119,17 @@ public class CommandManagerBuilder {
     /**
      * Deleted messages that invokes commands
      */
-    public CommandManagerBuilder deleteInvokeMessages(boolean enable){
+    public CommandManagerBuilder deleteInvokeMessages(boolean enable) {
         this.deleteInvokeMessage = enable;
         return this;
     }
 
     /**
      * Deletes bot's response to command
+     *
      * @param deleteTime Delay till message should be deleted
      */
-    public CommandManagerBuilder deleteCommandMessages(int deleteTime){
+    public CommandManagerBuilder deleteCommandMessages(int deleteTime) {
         this.deleteCommandMessage = deleteTime;
         return this;
     }
@@ -135,16 +141,16 @@ public class CommandManagerBuilder {
         return out;
     }
 
-    private void runChecks(){
-        if(permissionProvider == null)
+    private void runChecks() {
+        if (permissionProvider == null)
             throw new IllegalArgumentException("PermissionProvider cannot be null");
-        if(useGuildPrefixes && prefixProvider == null)
+        if (useGuildPrefixes && prefixProvider == null)
             throw new IllegalArgumentException("PrefixProvider cannot be null when using guild prefixes");
-        if(defaultPrefix == null)
+        if (defaultPrefix == null)
             throw new IllegalArgumentException("Default prefix cannot be null");
-        if(api == null)
+        if (api == null)
             throw new IllegalArgumentException("API cannot be null");
-        if(useBlackList && blackListProvider == null)
+        if (useBlackList && blackListProvider == null)
             throw new IllegalArgumentException("Blacklistprovider cannot be null when using blacklist");
 
     }

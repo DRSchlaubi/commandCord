@@ -16,8 +16,8 @@ public class JavaCordListener implements MessageCreateListener {
         parseMessage(message);
     }
 
-    void parseMessage(Message message){
+    void parseMessage(Message message) {
         System.out.println("LISTENERS");
-        CommandCord.getInstance().parse(message.getContent(), message.getChannelReceiver().getServer().getId(),message.getChannelReceiver().getId(), message.getId());
+        CommandCord.getInstance().parse(message.getContent(), message.getChannelReceiver().getServer().getId(), message.getChannelReceiver().getId(), message.getId());
     }
 }

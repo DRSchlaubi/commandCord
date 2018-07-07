@@ -26,8 +26,9 @@ public abstract class Discord4JCommandHandler extends GeneralCommandHandler {
         super(aliases, type, permissions, description, usage);
     }
 
+    public abstract String run(CommandInvocation invocation);
 
-    public static class CommandInvocation extends GeneralInvocation{
+    public static class CommandInvocation extends GeneralInvocation {
 
         private Message message;
 
@@ -36,14 +37,20 @@ public abstract class Discord4JCommandHandler extends GeneralCommandHandler {
             this.message = message;
         }
 
-        public Message getMessage(){
+        public Message getMessage() {
             return message;
         }
-        public User getUser() { return (User) message.getAuthor(); }
-        public Channel getChannel() { return (Channel) message.getChannel(); }
-        public Guild getGuild() { return (Guild) message.getGuild(); }
+
+        public User getUser() {
+            return (User) message.getAuthor();
+        }
+
+        public Channel getChannel() {
+            return (Channel) message.getChannel();
+        }
+
+        public Guild getGuild() {
+            return (Guild) message.getGuild();
+        }
     }
-
-
-    public abstract String run(CommandInvocation invocation);
 }

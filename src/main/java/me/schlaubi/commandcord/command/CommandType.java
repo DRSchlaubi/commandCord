@@ -14,11 +14,11 @@ public enum CommandType {
 
     private String displayName;
 
-    CommandType(String displayName){
+    CommandType(String displayName) {
         this.displayName = displayName;
     }
 
-    public String getDisplayName(){
+    public String getDisplayName() {
         return displayName;
     }
 }

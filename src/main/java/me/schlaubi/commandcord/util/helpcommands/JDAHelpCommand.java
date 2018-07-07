@@ -28,19 +28,19 @@ public class JDAHelpCommand extends JDACommandHandler {
     public Message run(CommandInvocation invocation) {
         CommandManager manager = CommandCord.getInstance();
         String[] args = invocation.getArgs();
-        if(args.length == 0) {
+        if (args.length == 0) {
             EmbedBuilder builder = new EmbedBuilder()
                     .setColor(Color.cyan);
             for (CommandType commandType : CommandType.class.getEnumConstants()) {
                 ArrayList<String> commandNames = HelpCommandHelper.getNamesByType(commandType);
-                if(commandNames.isEmpty()) continue;
+                if (commandNames.isEmpty()) continue;
                 builder.addField(commandType.getDisplayName(), HelpCommandHelper.listToString(commandNames), false);
             }
 
 
             return new MessageBuilder().setEmbed(builder.build()).build();
         } else {
-            if(!manager.getCommandAssociations().containsKey(args[0]))
+            if (!manager.getCommandAssociations().containsKey(args[0]))
                 return new MessageBuilder().setEmbed(new EmbedBuilder().setTitle(HelpCommandHelper.notFoundTitle()).setDescription(HelpCommandHelper.notFound()).build()).build();
             GeneralCommandHandler handler = HelpCommandHelper.getCommandByAlias(args[0]);
             return new MessageBuilder().setEmbed(new EmbedBuilder().setTitle("'" + handler.getAliases()[0] + "' command help").setDescription(handler.getDescription()).addField("Usage", handler.getUsage(), false).build()).build();

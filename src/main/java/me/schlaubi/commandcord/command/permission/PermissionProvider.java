@@ -8,6 +8,7 @@ public interface PermissionProvider {
 
     /**
      * Will be callen by Permissions#guildOwnerOnly() {@link me.schlaubi.commandcord.command.permission.Permissions}
+     *
      * @param member The member object of the user who performs the command {@link me.schlaubi.commandcord.command.permission.Member}
      * @return If the user has the permission
      */
@@ -15,6 +16,7 @@ public interface PermissionProvider {
 
     /**
      * Will be callen by Permissions#authorOnly() {@link me.schlaubi.commandcord.command.permission.Permissions}
+     *
      * @param member The member object of the user who performs the command {@link me.schlaubi.commandcord.command.permission.Member}
      * @return If the user has the permission
      */
@@ -22,7 +24,8 @@ public interface PermissionProvider {
 
     /**
      * Will be callen by Permissions#node() {@link me.schlaubi.commandcord.command.permission.Permissions}
-     * @param member The member object of the user who performs the command {@link me.schlaubi.commandcord.command.permission.Member}
+     *
+     * @param member         The member object of the user who performs the command {@link me.schlaubi.commandcord.command.permission.Member}
      * @param permissionNode The required permission node
      * @return If the user has the permission
      */
@@ -30,7 +33,8 @@ public interface PermissionProvider {
 
     /**
      * Will be callen by Permissions#level() {@link me.schlaubi.commandcord.command.permission.Permissions}
-     * @param member The member object of the user who performs the command {@link me.schlaubi.commandcord.command.permission.Member}
+     *
+     * @param member          The member object of the user who performs the command {@link me.schlaubi.commandcord.command.permission.Member}
      * @param permissionLevel The reburied permission level
      * @return If the user has the permission
      */

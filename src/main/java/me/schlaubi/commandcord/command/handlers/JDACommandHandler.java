@@ -10,7 +10,7 @@ import net.dv8tion.jda.core.entities.TextChannel;
  * @author Schlaubi / Michael Rittmeister
  */
 
-public abstract class JDACommandHandler extends GeneralCommandHandler{
+public abstract class JDACommandHandler extends GeneralCommandHandler {
 
     /**
      * Handler for every command
@@ -25,8 +25,9 @@ public abstract class JDACommandHandler extends GeneralCommandHandler{
         super(aliases, type, permissions, description, usage);
     }
 
+    public abstract Message run(CommandInvocation invocation);
 
-    public static class CommandInvocation extends GeneralInvocation{
+    public static class CommandInvocation extends GeneralInvocation {
 
         private Message message;
 
@@ -35,15 +36,21 @@ public abstract class JDACommandHandler extends GeneralCommandHandler{
             this.message = message;
         }
 
-        public Message getMessage(){
+        public Message getMessage() {
             return message;
         }
-        public net.dv8tion.jda.core.entities.Member getMember() { return  message.getMember(); }
-        public TextChannel getChannel() { return message.getTextChannel(); }
-        public Guild getGuild() { return message.getGuild(); }
+
+        public net.dv8tion.jda.core.entities.Member getMember() {
+            return message.getMember();
+        }
+
+        public TextChannel getChannel() {
+            return message.getTextChannel();
+        }
+
+        public Guild getGuild() {
+            return message.getGuild();
+        }
 
     }
-
-
-    public abstract Message run(CommandInvocation invocation);
 }

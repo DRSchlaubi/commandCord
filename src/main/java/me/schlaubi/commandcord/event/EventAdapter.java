@@ -9,16 +9,19 @@ import me.schlaubi.commandcord.event.events.NoPermissionEvent;
  * @author Schlaubi / Michael Rittmeister
  */
 
-public abstract class EventAdapter implements Listener{
+public abstract class EventAdapter implements Listener {
 
-    public void onCommandExecution(CommandExecutedEvent event) {}
+    public void onCommandExecution(CommandExecutedEvent event) {
+    }
 
-    public void onCommandFail(CommandFailedEvent event) {}
+    public void onCommandFail(CommandFailedEvent event) {
+    }
 
-    public void onPermissionViolation(NoPermissionEvent event) {}
+    public void onPermissionViolation(NoPermissionEvent event) {
+    }
 
-    public void onEvent(Event event){
-        if(event instanceof CommandExecutedEvent)
+    public void onEvent(Event event) {
+        if (event instanceof CommandExecutedEvent)
             this.onCommandExecution((CommandExecutedEvent) event);
         else if (event instanceof CommandFailedEvent)
             this.onCommandFail((CommandFailedEvent) event);

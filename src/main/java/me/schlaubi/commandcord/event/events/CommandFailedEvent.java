@@ -7,7 +7,7 @@ import me.schlaubi.commandcord.command.handlers.GeneralInvocation;
  * @author Schlaubi / Michael Rittmeister
  */
 
-public class CommandFailedEvent extends GeneralCommandEvent{
+public class CommandFailedEvent extends GeneralCommandEvent {
 
     private Throwable exception;
 
