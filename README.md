@@ -8,12 +8,12 @@ Maven
 <dependency>
   <groupId>me.schlaubi</groupId>
   <artifactId>commandCord</artifactId>
-  <version>1.0.0</version>
+  <version>Version code from badge above</version>
 </dependency>      
 ```
 Gradle:
 ```JSON
-compile 'me.schlaubi:commandCord:1.0.0'
+compile 'me.schlaubi:commandCord:Version code from badge above'
 ```
 
 
