@@ -47,11 +47,11 @@ compile 'me.schlaubi:commandCord:Version code from badge above'
 
 # Examples
 * Information providers
-  * [PermissionProvider](https://github.com/DRSchlaubi/commandCord/blob/master/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/providers/PermissionProvider.java)
-  * [PrefixProvider](https://github.com/DRSchlaubi/commandCord/blob/master/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/providers/PrefixProvider.java)
-  * [BlacklistProvider](https://github.com/DRSchlaubi/commandCord/blob/master/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/providers/BlackListProvider.java)
+  * [PermissionProvider](https://github.com/DRSchlaubi/commandcord-examples/blob/master/src/main/java/providers/PermissionsProvider.java)
+  * [PrefixProvider](https://github.com/DRSchlaubi/commandcord-examples/blob/master/src/main/java/providers/PrefixProvider.java)
+  * [BlacklistProvider](https://github.com/DRSchlaubi/commandcord-examples/blob/master/src/main/java/providers/BlacklistProvider.java)
 * Command handlers
-  * [JDAHandler](https://github.com/DRSchlaubi/commandCord/blob/master/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/jda/PingCommand.java)
+  * [JDAHandler](https://github.com/DRSchlaubi/commandcord-examples/blob/master/src/main/java/jda/PingCommand.java)
   * [Discord4JHandler](https://github.com/DRSchlaubi/commandCord/blob/master/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/discord4j/PingCommand.java)
   * [JavaCordHandler](https://github.com/DRSchlaubi/commandCord/blob/master/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/PingCommand.java)
   
