@@ -21,6 +21,10 @@ public class Discord4JHelpCommand extends Discord4JCommandHandler {
         super(aliases, type, Permissions.everyone(), description, usage);
     }
 
+    public Discord4JHelpCommand(){
+        super(new String[] {"help"}, CommandType.GENERAL, Permissions.everyone(), "Displays a list of all commands", "[command]");
+    }
+
     @Override
     public String run(CommandInvocation invocation) {
         CommandManager manager = CommandCord.getInstance();

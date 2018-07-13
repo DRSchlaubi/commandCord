@@ -8,10 +8,12 @@ import me.schlaubi.commandcord.core.CommandManager;
 
 public class CommandCord {
 
-    public static final String VERSION = "1.0.0 ";
+    public static final String VERSION = "1.1.0";
     public static final String AUTHOR = "Schlaubi";
     public static final String LICENSE = "GPL-3.0";
     public static final String GITHUB_URL = "http://github.com/DRschlaubi/commandCord";
+    public static final String WEBSITE = "http://schlaubi.me/commandCord";
+
     private static CommandManager instance;
 
     public static CommandManager getInstance() {

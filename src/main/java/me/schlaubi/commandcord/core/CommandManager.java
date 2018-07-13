@@ -20,10 +20,11 @@ public class CommandManager {
     public EventManager eventManager = new EventManager();
     protected boolean useGuildPrefixes;
     protected boolean useBlacklist;
-    protected PrefixProvider prefixProvider;
-    protected String defaultPrefix;
     private boolean authorIsAdmin;
     private boolean deleteInvokeMessage;
+    private boolean multiThreading;
+    protected PrefixProvider prefixProvider;
+    protected String defaultPrefix;
     private int deleteCommandMessage;
     private PermissionProvider permissionProvider;
     private Object api;
@@ -31,7 +32,7 @@ public class CommandManager {
     private BeforeTasks beforeTasksHandler;
     private BlackListProvider blackListProvider;
 
-    public CommandManager(boolean useGuildPrefixes, PermissionProvider permissionProvider, PrefixProvider prefixProvider, String defaultPrefix, CommandParser parser, Object api, BeforeTasks beforeTasksHandler, boolean useBlackList, BlackListProvider blackListProvider, boolean authorIsAdmin, boolean deleteInvokeMessage, int deleteCommandMessage) {
+    public CommandManager(boolean useGuildPrefixes, PermissionProvider permissionProvider, PrefixProvider prefixProvider, String defaultPrefix, CommandParser parser, Object api, BeforeTasks beforeTasksHandler, boolean useBlackList, BlackListProvider blackListProvider, boolean authorIsAdmin, boolean deleteInvokeMessage, int deleteCommandMessage, boolean multiThreading) {
         this.useGuildPrefixes = useGuildPrefixes;
         this.permissionProvider = permissionProvider;
         this.prefixProvider = prefixProvider;
@@ -44,6 +45,7 @@ public class CommandManager {
         this.authorIsAdmin = authorIsAdmin;
         this.deleteInvokeMessage = deleteInvokeMessage;
         this.deleteCommandMessage = deleteCommandMessage;
+        this.multiThreading = multiThreading;
     }
 
     public PermissionProvider getPermissionProvider() {
@@ -103,6 +105,13 @@ public class CommandManager {
      * Parse a command
      */
     public void parse(String message, String guildId, String textChannelId, String messageId) {
+        if(multiThreading)
+            new Thread(() -> parseCommand(message, guildId, textChannelId, messageId), "CommandHandlingThread").start();
+        else
+            parseCommand(message, guildId, textChannelId, messageId);
+    }
+
+    private void parseCommand(String message, String guildId, String textChannelId, String messageId){
         /* Run user specified before tasks*/
         if (!beforeTasksHandler.run(message, guildId, textChannelId, messageId)) return;
         /*Check if the channel is blacklisted*/

@@ -24,6 +24,10 @@ public class JDAHelpCommand extends JDACommandHandler {
         super(aliases, type, Permissions.everyone(), description, usage);
     }
 
+    public JDAHelpCommand(){
+        super(new String[] {"help"}, CommandType.GENERAL, Permissions.everyone(), "Displays a list of all commands", "[command]");
+    }
+
     @Override
     public Message run(CommandInvocation invocation) {
         CommandManager manager = CommandCord.getInstance();

@@ -21,6 +21,7 @@ public class CommandManagerBuilder {
     private boolean useBlackList = false;
     private boolean authorIsAdmin = true;
     private boolean deleteInvokeMessage = true;
+    private boolean multiThreading = false;
     private int deleteCommandMessage = 0;
     private String defaultPrefix;
     private PermissionProvider permissionProvider;
@@ -134,9 +135,17 @@ public class CommandManagerBuilder {
         return this;
     }
 
+    /**
+     * Enables that every command will be run in a new Thread
+     */
+    public CommandManagerBuilder enableMultiThreading(boolean enable){
+        this.multiThreading = enable;
+        return this;
+    }
+
     public CommandManager build() {
         runChecks();
-        CommandManager out = new CommandManager(useGuildPrefixes, permissionProvider, prefixProvider, defaultPrefix, getParser(), api, beforeTasksHandler, useBlackList, blackListProvider, authorIsAdmin, deleteInvokeMessage, deleteCommandMessage);
+        CommandManager out = new CommandManager(useGuildPrefixes, permissionProvider, prefixProvider, defaultPrefix, getParser(), api, beforeTasksHandler, useBlackList, blackListProvider, authorIsAdmin, deleteInvokeMessage, deleteCommandMessage, multiThreading);
         CommandCord.setInstance(out);
         return out;
     }

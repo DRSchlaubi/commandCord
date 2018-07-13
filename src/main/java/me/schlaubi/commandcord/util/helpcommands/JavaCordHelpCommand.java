@@ -22,6 +22,10 @@ public class JavaCordHelpCommand extends JavaCordHandler {
         super(aliases, type, Permissions.everyone(), description, usage);
     }
 
+    public JavaCordHelpCommand(){
+        super(new String[] {"help"}, CommandType.GENERAL, Permissions.everyone(), "Displays a list of all commands", "[command]");
+    }
+
     @Override
     public String run(CommandInvocation invocation) {
         CommandManager manager = CommandCord.getInstance();
