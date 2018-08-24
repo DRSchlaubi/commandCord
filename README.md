@@ -24,6 +24,8 @@ compile 'me.schlaubi:commandCord:Version code from badge above'
 
 # Features
 * Guild specific prefixes
+* Sub commands
+* Typing!!!
 * Permission system
 * More aliases per command
 * Blacklist support
@@ -32,26 +34,50 @@ compile 'me.schlaubi:commandCord:Version code from badge above'
 # Usage
 ```Java
 /* Build command manager */
-        CommandManager manager = new CommandManagerBuilder(APIWrapper.DISCORD4J)
-                .enableGuildPrefixes(false)
+ //Create manager
+        CommandManager manager = new CommandManagerBuilder(APIWrapper.JDA)
+                .enableGuildPrefixes(true)
                 .setDefaultPrefix("!")
-                .setPermissionProvider(new PermissionProvider())
+                .setApi(jdaInstance)
+                //use test as guild specific prefix
+                .setPrefixProvider(s -> "test")
                 .enableBlacklist(true)
-                .setBlacklistProvider(new BlackListProvider())
-                .deleteCommandMessages(5)
-                .setApi(client).build();
-        manager.registerCommands(new Discord4JHelpCommand(new String[] {"help"}, CommandType.GENERAL, "Displays all commands", "help [command]"),
-                new PingCommand(),
-                new FailCommand());
+                //Randomly block one channel
+                .setBlacklistProvider(channelId -> channelId.equals("470167577901924352"))
+                .enableTyping(true)
+                .setPermissionProvider(new PermissionProvider() {
+                    @Override
+                    public boolean isGuildOwner(Member member) {
+                        return jda.getGuildById(member.getGuildId()).getOwner().getUser().getId().equals(member.getUserId());
+                    }
+
+                    @Override
+                    public boolean isBotAuthor(Member member) {
+                        return member.getUserId().equals("264048760580079616");
+                    }
+
+                    @Override
+                    public boolean hasPermissionNode(Member member, String s) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean hasPermissionLevel(Member member, int i) {
+                        return false;
+                    }
+                }).build();
+        //Register commands
+        manager.registerCommands(
+                new JDAHelpCommand(),
+                new ErrorCommand(),
+                new TestCommand()
+        );
+        //Register events
+        manager.getEventManager().registerListener(new Listener());
 ```
 
 # Examples
-* Information providers
-  * [PermissionProvider](https://github.com/DRSchlaubi/commandcord-examples/blob/master/src/main/java/providers/PermissionsProvider.java)
-  * [PrefixProvider](https://github.com/DRSchlaubi/commandcord-examples/blob/master/src/main/java/providers/PrefixProvider.java)
-  * [BlacklistProvider](https://github.com/DRSchlaubi/commandcord-examples/blob/master/src/main/java/providers/BlacklistProvider.java)
-* Command handlers
-  * [JDAHandler](https://github.com/DRSchlaubi/commandcord-examples/blob/master/src/main/java/jda/PingCommand.java)
-  * [Discord4JHandler](https://github.com/DRSchlaubi/commandCord/blob/master/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/discord4j/PingCommand.java)
-  * [JavaCordHandler](https://github.com/DRSchlaubi/commandCord/blob/master/commandcord.examples/src/main/java/me/schlaubi/commandcord/examples/javacord/PingCommand.java)
+* [JDA Example](https://github.com/DRSchlaubi/commandCord/tree/master/examples/src/main/java/me/schlaubi/commandcord/examples/jda)
+* [Javacord Example](https://github.com/DRSchlaubi/commandCord/tree/master/examples/src/main/java/me/schlaubi/commandcord/examples/javacord)
+ 
   
