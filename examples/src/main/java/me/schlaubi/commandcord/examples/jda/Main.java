@@ -17,6 +17,7 @@ import javax.security.auth.login.LoginException;
 public class Main {
 
     public static void main(String[] args) {
+        //Create API
         JDABuilder builder = new JDABuilder(AccountType.BOT)
                 .setToken(TOKEN.token)
                 .addEventListener(new JDAListener());
@@ -27,6 +28,7 @@ public class Main {
             e.printStackTrace();
             return;
         }
+        //Create manager
         CommandManager manager = new CommandManagerBuilder(APIWrapper.JDA)
                 .enableGuildPrefixes(true)
                 .setDefaultPrefix("!")
@@ -58,11 +60,13 @@ public class Main {
                         return false;
                     }
                 }).build();
+        //Register commands
         manager.registerCommands(
                 new JDAHelpCommand(),
                 new ErrorCommand(),
                 new TestCommand()
         );
+        //Register events
         manager.getEventManager().registerListener(new Listener());
 
     }

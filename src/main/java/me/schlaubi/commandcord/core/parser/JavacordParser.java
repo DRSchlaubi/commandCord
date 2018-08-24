@@ -22,7 +22,7 @@ public class JavacordParser extends CommandParser {
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
-        return new JavacordCommandEvent(invokeMessage, invokeMessage.getServerTextChannel(), invokeMessage.getServer(), invokeMessage.getAuthor());
+        return new JavacordCommandEvent(invokeMessage, invokeMessage.getServerTextChannel().get(), invokeMessage.getServer().get(), invokeMessage.getAuthor());
     }
 
     @Override

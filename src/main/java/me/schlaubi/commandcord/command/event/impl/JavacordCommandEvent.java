@@ -4,6 +4,7 @@ package me.schlaubi.commandcord.command.event.impl;
 import me.schlaubi.commandcord.command.event.CommandEvent;
 import org.javacord.api.entity.channel.TextChannel;
 import org.javacord.api.entity.message.Message;
+import org.javacord.api.entity.message.MessageAuthor;
 import org.javacord.api.entity.server.Server;
 import org.javacord.api.entity.user.User;
 
@@ -25,7 +26,7 @@ public class JavacordCommandEvent extends CommandEvent {
         return (Server) guild;
     }
 
-    public User getAuthor() {
-        return ((User) author);
+    public MessageAuthor getAuthor() {
+        return ((MessageAuthor) author);
     }
 }

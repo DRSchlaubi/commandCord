@@ -15,9 +15,12 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //Create api
         DiscordApi api = new DiscordApiBuilder().setToken(TOKEN.token).login().join();
         api.addMessageCreateListener(new JavaCordListener());
-        CommandManager manager = new CommandManagerBuilder(APIWrapper.JDA)
+        System.out.println("You can invite me by using the following url: " + api.createBotInvite());
+        //Create manager
+        CommandManager manager = new CommandManagerBuilder(APIWrapper.JAVACORD)
                 .enableGuildPrefixes(true)
                 .setDefaultPrefix("!")
                 .setApi(api)
@@ -48,11 +51,13 @@ public class Main {
                         return false;
                     }
                 }).build();
+        //Register commands
         manager.registerCommands(
                 new JavacordHelpCommand(),
                 new ErrorCommand(),
                 new TestCommand()
         );
+        //Register events
         manager.getEventManager().registerListener(new Listener());
     }
 }

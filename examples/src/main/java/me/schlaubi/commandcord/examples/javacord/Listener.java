@@ -16,7 +16,7 @@ public class Listener extends EventAdapter {
     @Override
     public void onCommandExecution(CommandExecutedEvent event) {
         JavacordCommandEvent commandEvent = ((JavacordCommandEvent) event.getCommandEvent());
-        System.out.println("[COMMAND] Command " + event.getCommand().getAliases()[0] + " got executed by " + commandEvent.getAuthor().getMentionTag());
+        System.out.println("[COMMAND] Command " + event.getCommand().getAliases()[0] + " got executed by " + commandEvent.getAuthor().getDisplayName());
     }
 
     /* Exception handling */
