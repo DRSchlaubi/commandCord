@@ -8,7 +8,7 @@
     <groupId>me.schlaubi</groupId>
     <artifactId>commandCord</artifactId>
     <packaging>jar</packaging>
-    <version>1.1.0</version>
+    <version>2.0.0</version>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>A very feature rich framework for discord bot commands written in Java </description>
     <url>http://schlaubi.me/commandcord</url>
@@ -34,13 +34,6 @@
         <developerConnection>scm:git:git://github.com/DRSchlaubi/commandCord.git</developerConnection>
         <url>http//github.com/DRSchlaubi/commandCord/tree/master</url>
     </scm>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <bintray.repo>commandCord</bintray.repo>
-        <bintray.package>me.schlaubi.commandcord</bintray.package>
-        <bintray.subject>drschlaubi</bintray.subject>
-    </properties>
 
     <profiles>
         <profile>
@@ -128,6 +121,7 @@
         </repository>
     </repositories>
 
+
     <dependencies>
         <dependency>
             <groupId>com.discord4j</groupId>
@@ -138,16 +132,14 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>3.6.0_376</version>
+            <version>3.7.1_399</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>de.btobastian.javacord</groupId>
+            <groupId>org.javacord</groupId>
             <artifactId>javacord</artifactId>
-            <version>2.0.17</version>
-            <scope>provided</scope>
-            <!-- This will use the shaded javacord which contains all required dependencies -->
-            <classifier>shaded</classifier>
+            <version>3.0.0</version>
+            <type>pom</type>
         </dependency>
     </dependencies>
     <distributionManagement>

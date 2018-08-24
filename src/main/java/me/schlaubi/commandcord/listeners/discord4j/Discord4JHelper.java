@@ -11,6 +11,6 @@ import sx.blah.discord.handle.impl.obj.Message;
 public class Discord4JHelper {
 
     void parseMessage(Message message) {
-        CommandCord.getInstance().parse(message.getContent(), message.getGuild().getStringID(), message.getChannel().getStringID(), message.getStringID());
+        CommandCord.getInstance().parse(message.getContent(), message.getGuild().getStringID(), message.getChannel().getStringID(), message.getStringID(), message.getAuthor().getStringID());
     }
 }

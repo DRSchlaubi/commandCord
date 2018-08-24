@@ -1,7 +1,7 @@
 package me.schlaubi.commandcord.event.events;
 
-import me.schlaubi.commandcord.command.handlers.GeneralCommandHandler;
-import me.schlaubi.commandcord.command.handlers.GeneralInvocation;
+import me.schlaubi.commandcord.command.event.CommandEvent;
+import me.schlaubi.commandcord.command.handlers.Command;
 
 /**
  * @author Schlaubi / Michael Rittmeister
@@ -9,14 +9,15 @@ import me.schlaubi.commandcord.command.handlers.GeneralInvocation;
 
 public class CommandFailedEvent extends GeneralCommandEvent {
 
-    private Throwable exception;
+    private Throwable throwable;
 
-    public CommandFailedEvent(GeneralInvocation invocation, GeneralCommandHandler handler, Throwable exception) {
-        super(invocation, handler);
-        this.exception = exception;
+    public CommandFailedEvent(Command command, CommandEvent commandEvent, Throwable throwable) {
+        super(command, commandEvent);
+        this.throwable = throwable;
     }
 
-    public Throwable getException() {
-        return exception;
+
+    public Throwable getThrowable() {
+        return throwable;
     }
 }

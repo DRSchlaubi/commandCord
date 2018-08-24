@@ -1,7 +1,7 @@
 package me.schlaubi.commandcord.event.events;
 
-import me.schlaubi.commandcord.command.handlers.GeneralCommandHandler;
-import me.schlaubi.commandcord.command.handlers.GeneralInvocation;
+import me.schlaubi.commandcord.command.event.CommandEvent;
+import me.schlaubi.commandcord.command.handlers.Command;
 
 /**
  * @author Schlaubi / Michael Rittmeister
@@ -9,7 +9,7 @@ import me.schlaubi.commandcord.command.handlers.GeneralInvocation;
 
 public class NoPermissionEvent extends GeneralCommandEvent {
 
-    public NoPermissionEvent(GeneralInvocation invocation, GeneralCommandHandler handler) {
-        super(invocation, handler);
+    public NoPermissionEvent(Command command, CommandEvent commandEvent) {
+        super(command, commandEvent);
     }
 }

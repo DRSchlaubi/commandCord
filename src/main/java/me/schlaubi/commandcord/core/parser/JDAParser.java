@@ -1,65 +1,45 @@
 package me.schlaubi.commandcord.core.parser;
 
 import me.schlaubi.commandcord.CommandCord;
-import me.schlaubi.commandcord.command.handlers.JDACommandHandler;
-import me.schlaubi.commandcord.command.permission.Member;
+import me.schlaubi.commandcord.command.event.CommandEvent;
+import me.schlaubi.commandcord.command.event.impl.JDACommandEvent;
+import me.schlaubi.commandcord.command.result.Result;
 import me.schlaubi.commandcord.core.CommandParser;
-import me.schlaubi.commandcord.event.events.CommandExecutedEvent;
-import me.schlaubi.commandcord.event.events.CommandFailedEvent;
-import me.schlaubi.commandcord.event.events.NoPermissionEvent;
 import net.dv8tion.jda.bot.sharding.ShardManager;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.TextChannel;
 
-import java.util.concurrent.TimeUnit;
-
-/**
- * @author Schlaubi / Michael Rittmeister
- */
-
 public class JDAParser extends CommandParser {
 
     @Override
-    public void parse(String message, String guildId, String textChannelId, String messageId) {
-        if (!isCommand(message, guildId)) return;
-        JDACommandHandler handler = (JDACommandHandler) getHandlerByAlias(getAlias(message, guildId));
-        if (handler == null) return;
-        JDACommandHandler.CommandInvocation invocation = parseInvocation(message, guildId, textChannelId, messageId);
-
-        /* Delete message if enabled */
-        if (CommandCord.getInstance().isDeleteInvokeMessage())
-            invocation.getMessage().delete().queue();
-
-        if (!handler.getPermissions().isCovered(Member.fromJDA(invocation.getMember()))) {
-            CommandCord.getInstance().getEventManager().call(new NoPermissionEvent(invocation, handler));
-            return;
-        }
-
-        try {
-            Message answer = handler.run(invocation);
-            if (answer != null) {
-                Message msg = invocation.getChannel().sendMessage(answer).complete();
-                if (CommandCord.getInstance().getDeleteCommandMessage() != 0)
-                    msg.delete().queueAfter(CommandCord.getInstance().getDeleteCommandMessage(), TimeUnit.SECONDS);
-            }
-        } catch (Exception e) {
-            CommandCord.getInstance().getEventManager().call(new CommandFailedEvent(invocation, handler, e));
-        }
-        CommandCord.getInstance().getEventManager().call(new CommandExecutedEvent(invocation, handler));
-
+    protected CommandEvent parseEvent(String message, String guildId, String textChannelId, String messageId) {
+        Message invokeMessage = getMessageById(messageId, textChannelId, guildId);
+        return new JDACommandEvent(invokeMessage, invokeMessage.getTextChannel(), invokeMessage.getGuild(), invokeMessage.getAuthor());
     }
 
-    private JDACommandHandler.CommandInvocation parseInvocation(String message, String guildId, String textChannelId, String messageId) {
-        return new JDACommandHandler.CommandInvocation(getArgs(message, guildId), getMessageById(messageId, textChannelId, guildId), getAlias(message, guildId));
+    @Override
+    protected void deleteInvokeMessage(String messageId, String guildId, String textChannelId) {
+        getMessageById(messageId, textChannelId, guildId).delete().queue();
+    }
+
+    @Override
+    protected void sendMessage(Result result, String guildId, String textChannelId) throws Exception {
+        Guild guild= getGuildById(guildId);
+        result.sendMessage(guild.getTextChannelById(textChannelId), guild);
+    }
+
+    @Override
+    protected void sendTyping(String guildId, String textChannelId) {
+        getTextChannelById(textChannelId, guildId).sendTyping().queue();
     }
 
     private Message getMessageById(String messageId, String textChannelId, String guildId) {
-        return getTextChannel(textChannelId, guildId).getMessageById(messageId).complete();
+        return getTextChannelById(textChannelId, guildId).getMessageById(messageId).complete();
     }
 
-    private TextChannel getTextChannel(String textChannelId, String guildId) {
+    private TextChannel getTextChannelById(String textChannelId, String guildId) {
         return getGuildById(guildId).getTextChannelById(textChannelId);
     }
 

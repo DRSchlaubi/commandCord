@@ -1,8 +1,7 @@
 package me.schlaubi.commandcord.listeners.javacord;
 
-import de.btobastian.javacord.DiscordAPI;
-import de.btobastian.javacord.entities.message.Message;
-import de.btobastian.javacord.listener.message.MessageEditListener;
+import org.javacord.api.event.message.MessageEditEvent;
+import org.javacord.api.listener.message.MessageEditListener;
 
 /**
  * @author Schlaubi / Michael Rittmeister
@@ -11,7 +10,7 @@ import de.btobastian.javacord.listener.message.MessageEditListener;
 public class JavaCordEditsListener extends JavaCordListener implements MessageEditListener {
 
     @Override
-    public void onMessageEdit(DiscordAPI discordAPI, Message message, String s) {
-        parseMessage(message);
+    public void onMessageEdit(MessageEditEvent messageEditEvent) {
+        parseMessage(messageEditEvent.getMessage().get());
     }
 }

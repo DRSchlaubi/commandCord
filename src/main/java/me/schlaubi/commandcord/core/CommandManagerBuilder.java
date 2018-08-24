@@ -8,7 +8,7 @@ import me.schlaubi.commandcord.command.PrefixProvider;
 import me.schlaubi.commandcord.command.permission.PermissionProvider;
 import me.schlaubi.commandcord.core.parser.Discord4JParser;
 import me.schlaubi.commandcord.core.parser.JDAParser;
-import me.schlaubi.commandcord.core.parser.JavaCordParser;
+import me.schlaubi.commandcord.core.parser.JavacordParser;
 
 /**
  * @author Schlaubi / Michael Rittmeister
@@ -22,6 +22,7 @@ public class CommandManagerBuilder {
     private boolean authorIsAdmin = true;
     private boolean deleteInvokeMessage = true;
     private boolean multiThreading = false;
+    private boolean sendTyping = false;
     private int deleteCommandMessage = 0;
     private String defaultPrefix;
     private PermissionProvider permissionProvider;
@@ -68,7 +69,7 @@ public class CommandManagerBuilder {
     /**
      * Sets the Discord api wrapper which is needed to get guild information
      *
-     * @param api Your api instance {@link net.dv8tion.jda.core.JDA}, {@link de.btobastian.javacord.DiscordAPI}, {@link sx.blah.discord.api.IDiscordClient}
+     * @param api Your api instance {@link net.dv8tion.jda.core.JDA}, {@link org.javacord.api.DiscordApi}, {@link sx.blah.discord.api.IDiscordClient}
      */
     public CommandManagerBuilder setApi(Object api) {
         this.api = api;
@@ -143,9 +144,18 @@ public class CommandManagerBuilder {
         return this;
     }
 
+    /**
+     * Enables the sendTyping method before every command
+     *
+     */
+    public CommandManagerBuilder enableTyping(boolean enable) {
+        this.sendTyping = enable;
+        return this;
+    }
+
     public CommandManager build() {
         runChecks();
-        CommandManager out = new CommandManager(useGuildPrefixes, permissionProvider, prefixProvider, defaultPrefix, getParser(), api, beforeTasksHandler, useBlackList, blackListProvider, authorIsAdmin, deleteInvokeMessage, deleteCommandMessage, multiThreading);
+        CommandManager out = new CommandManager(useGuildPrefixes, permissionProvider, prefixProvider, defaultPrefix, getParser(), api, beforeTasksHandler, useBlackList, blackListProvider, authorIsAdmin, deleteInvokeMessage, deleteCommandMessage, multiThreading, sendTyping);
         CommandCord.setInstance(out);
         return out;
     }
@@ -170,7 +180,7 @@ public class CommandManagerBuilder {
         else if (wrapper.equals(APIWrapper.DISCORD4J))
             return new Discord4JParser();
         else if (wrapper.equals(APIWrapper.JAVACORD))
-            return new JavaCordParser();
+            return new JavacordParser();
         else
             return null;
     }

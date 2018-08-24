@@ -17,6 +17,6 @@ public class JDAListener extends ListenerAdapter {
     }
 
     void parseCommand(Message message) {
-        CommandCord.getInstance().parse(message.getContentDisplay(), message.getGuild().getId(), message.getTextChannel().getId(), message.getId());
+        CommandCord.getInstance().parse(message.getContentDisplay(), message.getGuild().getId(), message.getTextChannel().getId(), message.getId(), message.getAuthor().getId());
     }
 }
