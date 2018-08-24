@@ -1,8 +1,8 @@
 # commandCord
-A very feature rich framework for discord bot commands written in Java
+A feature-rich framework for Discord-bot commands written in Java.<br>
 Getting started: [https://github.com/DRSchlaubi/commandCord/wiki/Create-your-first-command](https://github.com/DRSchlaubi/commandCord/wiki/Create-your-first-command)
 ## Implementation
-You can import the library you found on the releases page via Build Path ([IntelliJ](https://stackoverflow.com/questions/34832059/how-to-add-a-project-to-build-path-in-intellij-idea), [Eclipse](https://wiki.eclipse.org/FAQ_How_do_I_add_an_extra_library_to_my_project%27s_classpath%3F)) <br>
+You can import the library you found on the releases page via build path ([IntelliJ](https://stackoverflow.com/questions/34832059/how-to-add-a-project-to-build-path-in-intellij-idea), [Eclipse](https://wiki.eclipse.org/FAQ_How_do_I_add_an_extra_library_to_my_project%27s_classpath%3F)) <br>
 [![Maven Central](https://img.shields.io/maven-central/v/me.schlaubi/commandCord.svg?label=Maven%20Central)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22me.schlaubi%22%20a%3A%22commandCord%22)<br>
 Maven
 ```XML
@@ -24,10 +24,10 @@ compile 'me.schlaubi:commandCord:Version code from badge above'
 * [JavaCord](https://github.com/BtoBastian/Javacord)
 
 # Features
-* Guild specific prefixes
+* Guild-specific prefixes
 * Sub commands
-* Typing!!!
-* Permission system
+* Bot sends typing
+* Permissionssystem
 * More aliases per command
 * Blacklist support
 * Events
