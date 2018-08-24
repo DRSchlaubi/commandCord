@@ -25,8 +25,8 @@ compile 'me.schlaubi:commandCord:Version code from badge above'
 
 # Features
 * Guild-specific prefixes
-* Sub commands
-* Bot sends typing
+* Subcommands
+* Typinganimation
 * Permissionssystem
 * More aliases per command
 * Blacklist support
