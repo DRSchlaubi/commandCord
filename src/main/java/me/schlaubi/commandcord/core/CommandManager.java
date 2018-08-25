@@ -119,6 +119,11 @@ public class CommandManager {
 
     /**
      * Parse a command
+     * @param message Content of the message
+     * @param guildId The ID of the guild
+     * @param textChannelId The ID of the channel
+     * @param messageId The ID of the message
+     * @param authorId The ID of the message author
      */
     public void parse(String message, String guildId, String textChannelId, String messageId, String authorId) {
         if(multiThreading)

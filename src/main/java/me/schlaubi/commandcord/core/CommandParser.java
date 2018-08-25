@@ -59,6 +59,9 @@ public abstract class CommandParser {
 
     /**
      * Checks if a message is a command (starts with the right prefix)
+     * @param message The content of the message
+     * @param guildId The ID of the guild
+     * @return If the message is a command
      */
     protected boolean isNoCommand(String message, String guildId) {
         CommandManager instance = CommandCord.getInstance();
@@ -70,6 +73,9 @@ public abstract class CommandParser {
 
     /**
      * Split arguments
+     * @param message The content of the message
+     * @param guildId The ID of the guild
+     * @return The arguments
      */
     protected String[] getArgs(String message, String guildId) {
         String rawArgs = replacePrefix(message, guildId);
@@ -81,6 +87,9 @@ public abstract class CommandParser {
 
     /**
      * Gets the used alias of the message
+     * @param message The content of the message
+     * @param guildId The ID of the message
+     * @return Return the main alias of the command
      */
     protected String getAlias(String message, String guildId) {
         return replacePrefix(message, guildId).split(" ")[0];
@@ -88,6 +97,9 @@ public abstract class CommandParser {
 
     /**
      * Replaces the message
+     * @param message The content of the message
+     * @param guildId The ID of the guild
+     * @return The invoke message without the prefix
      */
     protected String replacePrefix(String message, String guildId) {
         CommandManager instance = CommandCord.getInstance();
@@ -103,6 +115,8 @@ public abstract class CommandParser {
 
     /**
      * Get the commandHandler by the used alias
+     * @param alias The alias of the command
+     * @return The Command with the defined alias
      */
     protected Command getCommandByAlias(String alias) {
         return CommandCord.getInstance().commandAssociations.get(alias.toLowerCase());

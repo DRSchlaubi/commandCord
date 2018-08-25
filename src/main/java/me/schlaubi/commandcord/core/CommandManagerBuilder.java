@@ -40,6 +40,7 @@ public class CommandManagerBuilder {
      * Sets the provider for permissions
      *
      * @param permissionProvider Provider for permissions {@link me.schlaubi.commandcord.command.permission.PermissionProvider}
+     * @return The actual CommandManagerBuilder
      */
     public CommandManagerBuilder setPermissionProvider(PermissionProvider permissionProvider) {
         this.permissionProvider = permissionProvider;
@@ -50,6 +51,7 @@ public class CommandManagerBuilder {
      * Sets the provider for prefixes
      *
      * @param prefixProvider Provider for permissions {@link me.schlaubi.commandcord.command.PrefixProvider}
+     * @return The actual CommandManagerBuilder
      */
     public CommandManagerBuilder setPrefixProvider(PrefixProvider prefixProvider) {
         this.prefixProvider = prefixProvider;
@@ -60,6 +62,7 @@ public class CommandManagerBuilder {
      * Sets the default prefix
      *
      * @param defaultPrefix prefix that is used on every guild
+     * @return The actual CommandManagerBuilder
      */
     public CommandManagerBuilder setDefaultPrefix(String defaultPrefix) {
         this.defaultPrefix = defaultPrefix;
@@ -70,6 +73,7 @@ public class CommandManagerBuilder {
      * Sets the Discord api wrapper which is needed to get guild information
      *
      * @param api Your api instance {@link net.dv8tion.jda.core.JDA}, {@link org.javacord.api.DiscordApi}, {@link sx.blah.discord.api.IDiscordClient}
+     * @return The actual CommandManagerBuilder
      */
     public CommandManagerBuilder setApi(Object api) {
         this.api = api;
@@ -77,7 +81,9 @@ public class CommandManagerBuilder {
     }
 
     /**
-     * Enabled guild specific prefrixes
+     * Enabled guild specific prefixes
+     * @param useGuildPrefixes Enable the option
+     * @return The actual CommandManagerBuilder
      */
     public CommandManagerBuilder enableGuildPrefixes(boolean useGuildPrefixes) {
         this.useGuildPrefixes = useGuildPrefixes;
@@ -86,6 +92,8 @@ public class CommandManagerBuilder {
 
     /**
      * Enabled task that were run before every command
+     * @param beforeTasksHandler Your BeforeTaskHandler {@link me.schlaubi.commandcord.command.BeforeTasks}
+     * @return The actual CommandManagerBuilder
      */
     public CommandManagerBuilder setBeforeTasksHandler(BeforeTasks beforeTasksHandler) {
         this.beforeTasksHandler = beforeTasksHandler;
@@ -94,6 +102,8 @@ public class CommandManagerBuilder {
 
     /**
      * Enabled blacklist
+     * @param enable Enable the option
+     * @return The actual CommandManagerBuilder
      */
     public CommandManagerBuilder enableBlacklist(boolean enable) {
         this.useBlackList = enable;
@@ -104,6 +114,7 @@ public class CommandManagerBuilder {
      * Sets blacklist provider (is necessary to use blacklist)
      *
      * @param blacklistProvider Provider for blacklist {@link me.schlaubi.commandcord.command.BlackListProvider}
+     * @return The actual CommandManagerBuilder
      */
     public CommandManagerBuilder setBlacklistProvider(BlackListProvider blacklistProvider) {
         this.blackListProvider = blacklistProvider;
@@ -112,6 +123,8 @@ public class CommandManagerBuilder {
 
     /**
      * Gives bot auhtors admin rights for every command on all servers
+     * @param enable Enable the option
+     * @return The actual CommandManagerBuilder
      */
     public CommandManagerBuilder authorIsAdmin(boolean enable) {
         this.authorIsAdmin = enable;
@@ -120,6 +133,8 @@ public class CommandManagerBuilder {
 
     /**
      * Deleted messages that invokes commands
+     * @param enable Enable the option
+     * @return The actual CommandManagerBuilder
      */
     public CommandManagerBuilder deleteInvokeMessages(boolean enable) {
         this.deleteInvokeMessage = enable;
@@ -130,6 +145,7 @@ public class CommandManagerBuilder {
      * Deletes bot's response to command
      *
      * @param deleteTime Delay till message should be deleted
+     * @return The actual CommandManagerBuilder
      */
     public CommandManagerBuilder deleteCommandMessages(int deleteTime) {
         this.deleteCommandMessage = deleteTime;
@@ -138,6 +154,8 @@ public class CommandManagerBuilder {
 
     /**
      * Enables that every command will be run in a new Thread
+     * @param enable Enable the option
+     * @return The actual CommandManagerBuilder
      */
     public CommandManagerBuilder enableMultiThreading(boolean enable){
         this.multiThreading = enable;
@@ -146,7 +164,8 @@ public class CommandManagerBuilder {
 
     /**
      * Enables the sendTyping method before every command
-     *
+     * @param enable Enable the option
+     * @return The actual CommandManagerBuilder
      */
     public CommandManagerBuilder enableTyping(boolean enable) {
         this.sendTyping = enable;
