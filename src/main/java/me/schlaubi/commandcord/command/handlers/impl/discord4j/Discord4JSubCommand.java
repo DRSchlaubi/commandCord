@@ -23,14 +23,26 @@ public abstract class Discord4JSubCommand extends Command {
 
     public abstract Result run(String[] args, Discord4JCommandEvent event);
 
+    /**
+     * Creates a Result from a String
+     * @param message The content of the Message
+     */
     protected Result send(String message) {
         return new Discord4JResult(message);
     }
 
+    /**
+     * Creates a Result from a EmbedObject created with a EmbedBuilder {@link sx.blah.discord.util.EmbedBuilder}
+     * @param embed The Object built with the EmbedBuilder
+     */
     protected Result send(EmbedObject embed) {
         return new Discord4JResult(embed);
     }
 
+    /**
+     * Creates a Result from a EmbedBuilder {@link sx.blah.discord.util.EmbedBuilder}
+     * @param builder The EmbedBuilder
+     */
     protected Result send(EmbedBuilder builder) {
         return new Discord4JResult(builder);
     }

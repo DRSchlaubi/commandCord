@@ -1,6 +1,7 @@
 package me.schlaubi.commandcord.listeners.javacord;
 
 import me.schlaubi.commandcord.CommandCord;
+import org.javacord.api.entity.channel.PrivateChannel;
 import org.javacord.api.entity.message.Message;
 import org.javacord.api.event.message.MessageCreateEvent;
 import org.javacord.api.listener.message.MessageCreateListener;
@@ -12,11 +13,12 @@ import org.javacord.api.listener.message.MessageCreateListener;
 public class JavaCordListener implements MessageCreateListener {
 
     void parseMessage(Message message) {
-        CommandCord.getInstance().parse(message.getContent(), message.getServer().get().getIdAsString(), message.getChannel().getIdAsString(), message.getIdAsString(), message.getAuthor().getIdAsString());
+        if (message.getAuthor().isUser() && !(message.getChannel() instanceof PrivateChannel))
+            CommandCord.getInstance().parse(message.getContent(), message.getServer().get().getIdAsString(), message.getChannel().getIdAsString(), message.getIdAsString(), message.getAuthor().getIdAsString());
     }
 
     @Override
     public void onMessageCreate(MessageCreateEvent messageCreateEvent) {
-        parseMessage(messageCreateEvent.getMessage());
+            parseMessage(messageCreateEvent.getMessage());
     }
 }

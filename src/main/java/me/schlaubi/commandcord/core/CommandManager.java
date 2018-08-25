@@ -7,6 +7,9 @@ import me.schlaubi.commandcord.command.handlers.Command;
 import me.schlaubi.commandcord.command.permission.PermissionProvider;
 import me.schlaubi.commandcord.event.EventManager;
 
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +18,8 @@ import java.util.Map;
  */
 
 public class CommandManager {
+
+    private static final Logger logger = Logger.getLogger(CommandManager.class);
 
     protected final Map<String, Command> commandAssociations = new HashMap<>();
     public EventManager eventManager = new EventManager();
@@ -48,6 +53,15 @@ public class CommandManager {
         this.deleteCommandMessage = deleteCommandMessage;
         this.multiThreading = multiThreading;
         this.sendTyping = sendTyping;
+        initLogger();
+    }
+
+    private void initLogger() {
+        final ConsoleAppender consoleAppender = new ConsoleAppender();
+        final PatternLayout consolePatternLayout = new PatternLayout("(%d{HH:mm:ss}) [Bot] [%p] | %m%n");
+        consoleAppender.setLayout(consolePatternLayout);
+        consoleAppender.activateOptions();
+        Logger.getRootLogger().addAppender(consoleAppender);
     }
 
     public PermissionProvider getPermissionProvider() {
@@ -63,7 +77,7 @@ public class CommandManager {
         for (String alias : command.getAliases()) {
             //Check if alias is already taken
             if (commandAssociations.containsKey(alias))
-                System.err.println("Warning: Alias " + alias + " is already used by command handler " + commandAssociations.get(alias).toString());
+                logger.error(String.format("Error: Alias %s is already used by command handler %s", alias, commandAssociations.get(alias).toString()));
             else
                 commandAssociations.put(alias.toLowerCase(), command);
         }
@@ -87,7 +101,7 @@ public class CommandManager {
     public void unregisterCommand(String alias) {
         //Check if alias is used
         if (commandAssociations.containsKey(alias))
-            System.err.println("Warning: Alias " + alias + " is not registred");
+            logger.error(String.format("Error: Alias %s is not registered", alias));
         else
             commandAssociations.remove(alias);
     }
@@ -95,7 +109,7 @@ public class CommandManager {
     public void unregisterCommand(Command command) {
         //Check if alias is used
         if (commandAssociations.containsValue(command))
-            System.err.println("Warning: Handler " + command + " is not registred");
+            logger.error(String.format("Error: Handler %s is not registered", command));
         else
             commandAssociations.forEach((a, h) -> {
                 if (h.equals(command))

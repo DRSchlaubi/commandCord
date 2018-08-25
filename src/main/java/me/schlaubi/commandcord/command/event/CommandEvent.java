@@ -14,18 +14,34 @@ public class CommandEvent {
         this.author = author;
     }
 
+    /**
+     * Returns the message Object
+     * @return Object message
+     */
     public Object getMessageObject() {
         return message;
     }
 
+    /**
+     * Returns the Channel object
+     * @return Object channel
+     */
     public Object getTextChannelObject() {
         return textChannel;
     }
 
+    /**
+     * Returns the guild object
+     * @return Object guild
+     */
     public Object getGuildObject() {
         return guild;
     }
 
+    /**
+     * Returns the author object
+     * @return Object author
+     */
     public Object getAuthorObject() {
         return author;
     }

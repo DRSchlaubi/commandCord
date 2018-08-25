@@ -7,6 +7,7 @@ import me.schlaubi.commandcord.command.result.Result;
 import me.schlaubi.commandcord.core.CommandParser;
 import net.dv8tion.jda.bot.sharding.ShardManager;
 import net.dv8tion.jda.core.JDA;
+import net.dv8tion.jda.core.Permission;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.TextChannel;
@@ -21,13 +22,24 @@ public class JDAParser extends CommandParser {
 
     @Override
     protected void deleteInvokeMessage(String messageId, String guildId, String textChannelId) {
-        getMessageById(messageId, textChannelId, guildId).delete().queue();
+        Message message = getMessageById(messageId, textChannelId, guildId);
+        TextChannel textChannel = message.getGuild().getTextChannelById(textChannelId);
+        if (message.getGuild().getSelfMember().hasPermission(textChannel, Permission.MESSAGE_MANAGE))
+            message.delete().queue();
+        else
+            logger.warn(String.format("Warning: Invoke message could not be deleted due to an permission error missing permission: %s Guild: %s", Permission.MESSAGE_MANAGE, guildId));
+
     }
 
     @Override
     protected void sendMessage(Result result, String guildId, String textChannelId) throws Exception {
         Guild guild= getGuildById(guildId);
-        result.sendMessage(guild.getTextChannelById(textChannelId), guild);
+        TextChannel textChannel = guild.getTextChannelById(textChannelId);
+        if (guild.getSelfMember().hasPermission(textChannel, Permission.MESSAGE_WRITE))
+            result.sendMessage(guild.getTextChannelById(textChannelId), guild);
+        else
+            logger.warn(String.format("Warning: Invoke message could not be sent due to an permission error missing permission: %s Guild: %s", Permission.MESSAGE_WRITE, guildId));
+
     }
 
     @Override

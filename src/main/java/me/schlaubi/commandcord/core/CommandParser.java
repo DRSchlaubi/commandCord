@@ -8,8 +8,12 @@ import me.schlaubi.commandcord.command.result.Result;
 import me.schlaubi.commandcord.event.events.CommandExecutedEvent;
 import me.schlaubi.commandcord.event.events.CommandFailedEvent;
 import me.schlaubi.commandcord.event.events.NoPermissionEvent;
+import org.apache.log4j.Logger;
 
 public abstract class CommandParser {
+
+    protected final Logger logger = Logger.getLogger(CommandParser.class);
+
 
     public void parse(String message, String guildId, String textChannelId, String messageId, String authorId) {
         if (isNoCommand(message, guildId)) return;

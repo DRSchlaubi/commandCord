@@ -11,6 +11,9 @@ import java.util.TimerTask;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * Use this class when you're using the Javacord library
+ */
 public class JavacordResult implements Result {
 
     private EmbedBuilder embedBuilder;
@@ -38,10 +41,18 @@ public class JavacordResult implements Result {
             }, CommandCord.getInstance().getDeleteCommandMessage());
     }
 
+    /**
+     * Creates a Result from a String
+     * @param message The content of the Message
+     */
     public JavacordResult(String message) {
         this.message = message;
     }
 
+    /**
+     * Creates a Result from an EmbedBuilder {@link org.javacord.api.entity.message.embed.EmbedBuilder}
+     * @param embedBuilder The EmbedBuilder
+     */
     public JavacordResult(EmbedBuilder embedBuilder) {
         this.embedBuilder = embedBuilder;
     }

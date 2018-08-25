@@ -1,6 +1,6 @@
 package me.schlaubi.commandcord.listeners.discord4j;
 
-import sx.blah.discord.api.events.IListener;
+import sx.blah.discord.api.events.EventSubscriber;
 import sx.blah.discord.handle.impl.events.guild.channel.message.MessageEditEvent;
 import sx.blah.discord.handle.impl.obj.Message;
 
@@ -8,10 +8,10 @@ import sx.blah.discord.handle.impl.obj.Message;
  * @author Schlaubi / Michael Rittmeister
  */
 
-public class Discord4JEditsListener extends Discord4JHelper implements IListener<MessageEditEvent> {
+public class Discord4JEditsListener extends Discord4JHelper  {
 
-    @Override
-    public void handle(MessageEditEvent messageEditEvent) {
+    @EventSubscriber
+    public void onMessageEdit(MessageEditEvent messageEditEvent) {
         parseMessage((Message) messageEditEvent.getMessage());
     }
 }

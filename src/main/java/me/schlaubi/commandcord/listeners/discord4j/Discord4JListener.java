@@ -1,6 +1,7 @@
 package me.schlaubi.commandcord.listeners.discord4j;
 
-import sx.blah.discord.api.events.IListener;
+import net.dv8tion.jda.core.entities.PrivateChannel;
+import sx.blah.discord.api.events.EventSubscriber;
 import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedEvent;
 import sx.blah.discord.handle.impl.obj.Message;
 
@@ -8,10 +9,10 @@ import sx.blah.discord.handle.impl.obj.Message;
  * @author Schlaubi / Michael Rittmeister
  */
 
-public class Discord4Jlistener extends Discord4JHelper implements IListener<MessageReceivedEvent> {
+public class Discord4JListener extends Discord4JHelper {
 
-    @Override
-    public void handle(MessageReceivedEvent messageReceivedEvent) {
+    @EventSubscriber
+    public void onMessageReceived(MessageReceivedEvent messageReceivedEvent) {
         parseMessage((Message) messageReceivedEvent.getMessage());
     }
 
