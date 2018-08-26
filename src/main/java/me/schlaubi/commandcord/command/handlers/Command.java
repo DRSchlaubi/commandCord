@@ -1,5 +1,6 @@
 package me.schlaubi.commandcord.command.handlers;
 
+import me.schlaubi.commandcord.CommandCord;
 import me.schlaubi.commandcord.command.CommandType;
 import me.schlaubi.commandcord.command.event.CommandEvent;
 import me.schlaubi.commandcord.command.permission.Permissions;
@@ -39,7 +40,7 @@ public abstract class Command {
      * @param event The command event {@link me.schlaubi.commandcord.command.event.CommandEvent}
      * @return Your Result {@link me.schlaubi.commandcord.command.result.Result}
      */
-    public abstract Result run(String[] args, CommandEvent event);
+    public abstract Result run(String[] args, CommandEvent event) throws Exception;
 
     /**
      * Register a sub command
@@ -55,6 +56,13 @@ public abstract class Command {
      */
     public void registerSubCommands(SubCommand... subCommands) {
         Arrays.asList(subCommands).forEach(this::registerSubCommand);
+    }
+
+    public String getUsageMessage() {
+        StringBuilder usageBuilder = new StringBuilder();
+        usageBuilder.append(String.format("%s%s %s", CommandCord.getInstance().getDefaultPrefix(), aliases[0], usage)).append("\n");
+        subCommandAssociations.values().forEach(subCommand -> usageBuilder.append(String.format("%s%s %s %s", CommandCord.getInstance().getDefaultPrefix(), aliases[0], subCommand.getAliases()[0], subCommand.getUsage())));
+        return usageBuilder.toString();
     }
 
     public String[] getAliases() {

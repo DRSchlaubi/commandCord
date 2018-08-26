@@ -32,10 +32,7 @@ public abstract class HelpCommand extends Command {
             if (!CommandCord.getInstance().getCommandAssociations().containsKey(args[0]))
                 return parseNotFound(":warning: Not found", "That command could not be found");
             Command command = getCommandByAlias(args[0]);
-            StringBuilder usage = new StringBuilder();
-            usage.append(String.format("%s%s %s", CommandCord.getInstance().getDefaultPrefix(), command.getAliases()[0], command.getUsage())).append("\n");
-            command.getSubCommandAssociations().values().forEach(subCommand -> usage.append(String.format("%s%s %s %s", CommandCord.getInstance().getDefaultPrefix(), command.getAliases()[0], subCommand.getAliases()[0], subCommand.getUsage())));
-            return parseCommandResult("**" + command.getAliases()[0] + " - Help**", usage.toString());
+            return parseCommandResult("**" + command.getAliases()[0] + " - Help**", command.getUsageMessage());
         }
         Arrays.asList(CommandType.class.getEnumConstants()).forEach(commandType -> {
             if(!getNamesByType(commandType).isEmpty())

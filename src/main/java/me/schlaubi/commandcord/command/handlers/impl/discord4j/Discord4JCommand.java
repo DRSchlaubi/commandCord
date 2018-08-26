@@ -28,7 +28,7 @@ public abstract class Discord4JCommand extends Command {
     }
 
     @Override
-    public Result run(String[] args, CommandEvent event) {
+    public Result run(String[] args, CommandEvent event) throws Exception {
         return run(args, ((Discord4JCommandEvent) event));
     }
 
@@ -38,7 +38,7 @@ public abstract class Discord4JCommand extends Command {
      * @param event The command event {@link me.schlaubi.commandcord.command.event.impl.Discord4JCommandEvent}
      * @return Your Result Your Result {@link me.schlaubi.commandcord.command.result.impl.Discord4JResult}
      */
-    public abstract Result run(String[] args, Discord4JCommandEvent event);
+    public abstract Result run(String[] args, Discord4JCommandEvent event) throws Exception;
 
     /**
      * Creates a Result from a String

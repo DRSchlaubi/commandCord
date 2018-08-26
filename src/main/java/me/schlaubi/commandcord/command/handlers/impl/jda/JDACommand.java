@@ -26,7 +26,7 @@ public abstract class JDACommand extends Command {
     }
 
     @Override
-    public Result run(String[] args, CommandEvent event) {
+    public Result run(String[] args, CommandEvent event) throws Exception {
         return run(args, (JDACommandEvent) event);
     }
 
@@ -36,7 +36,7 @@ public abstract class JDACommand extends Command {
      * @param event The command event {@link me.schlaubi.commandcord.command.event.impl.JDACommandEvent}
      * @return Your Result Your Result {@link me.schlaubi.commandcord.command.result.impl.JDAResult}
      */
-    public abstract Result run(String[] args, JDACommandEvent event);
+    public abstract Result run(String[] args, JDACommandEvent event) throws Exception;
 
     /**
      * Creates a Result from a Message created by a MessageBuilder {@link net.dv8tion.jda.core.MessageBuilder}

@@ -79,6 +79,8 @@ public class Permissions {
             return CommandCord.getInstance().getPermissionProvider().isGuildOwner(member);
         if (isAuthorOnly)
             return CommandCord.getInstance().getPermissionProvider().isBotAuthor(member);
+        if (!isAuthorOnly && CommandCord.getInstance().getPermissionProvider().isGuildOwner(member))
+            return true;
         if (permissionLevel != 0)
             return CommandCord.getInstance().getPermissionProvider().hasPermissionLevel(member, permissionLevel);
         return CommandCord.getInstance().getPermissionProvider().hasPermissionNode(member, permissionNode);

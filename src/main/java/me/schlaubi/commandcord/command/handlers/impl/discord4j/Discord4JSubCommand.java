@@ -4,16 +4,18 @@ import me.schlaubi.commandcord.command.CommandType;
 import me.schlaubi.commandcord.command.event.CommandEvent;
 import me.schlaubi.commandcord.command.event.impl.Discord4JCommandEvent;
 import me.schlaubi.commandcord.command.handlers.Command;
+import me.schlaubi.commandcord.command.handlers.SubCommand;
 import me.schlaubi.commandcord.command.permission.Permissions;
 import me.schlaubi.commandcord.command.result.Result;
 import me.schlaubi.commandcord.command.result.impl.Discord4JResult;
 import sx.blah.discord.api.internal.json.objects.EmbedObject;
 import sx.blah.discord.util.EmbedBuilder;
 
-public abstract class Discord4JSubCommand extends Command {
+public abstract class Discord4JSubCommand extends SubCommand {
 
-    public Discord4JSubCommand(String[] aliases, CommandType commandType, Permissions permissions, String description, String usage) {
-        super(aliases, commandType, permissions, description, usage);
+
+    public Discord4JSubCommand(String[] aliases, Permissions permissions, String description, String usage) {
+        super(aliases, permissions, description, usage);
     }
 
     @Override

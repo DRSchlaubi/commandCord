@@ -24,7 +24,7 @@ public abstract class JavacordCommand extends Command {
     }
 
     @Override
-    public Result run(String[] args, CommandEvent event) {
+    public Result run(String[] args, CommandEvent event) throws Exception {
         return run(args, (JavacordCommandEvent) event);
     }
 
@@ -34,7 +34,7 @@ public abstract class JavacordCommand extends Command {
      * @param event The command event {@link me.schlaubi.commandcord.command.event.impl.JavacordCommandEvent}
      * @return Your Result Your Result {@link me.schlaubi.commandcord.command.result.impl.JavacordResult}
      */
-    public abstract Result run(String[] args, JavacordCommandEvent event);
+    public abstract Result run(String[] args, JavacordCommandEvent event) throws Exception;
 
     /**
      * Creates a Result from a String
