@@ -22,7 +22,7 @@ public abstract class CommandParser {
         if (!CommandCord.getInstance().getBeforeTasksHandler().run(message, guildId, textChannelId, messageId))
             return;
         if (CommandCord.getInstance().useBlacklist)
-            if (CommandCord.getInstance().getBlackListProvider().isBlackListed(textChannelId))
+            if (CommandCord.getInstance().getBlackListProvider().isBlackListed(textChannelId, guildId))
                 return;
         if (CommandCord.getInstance().isTyping())
             sendTyping(guildId, textChannelId);

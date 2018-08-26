@@ -8,5 +8,5 @@ public interface BlackListProvider {
      * @param textChannelId The id of the textchannel where the command is executed
      * @return If the channel is blacklisted
      */
-    boolean isBlackListed(String textChannelId);
+    boolean isBlackListed(String textChannelId, String guildId);
 }

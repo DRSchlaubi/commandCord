@@ -37,7 +37,7 @@ public class Main {
                 .setPrefixProvider(s -> "test")
                 .enableBlacklist(true)
                 //Randomly block one channel
-                .setBlacklistProvider(channelId -> channelId.equals("470167577901924352"))
+                .setBlacklistProvider((channelId, guildId) -> channelId.equals("470167577901924352"))
                 .enableTyping(true)
                 .setPermissionProvider(new PermissionProvider() {
                     @Override
